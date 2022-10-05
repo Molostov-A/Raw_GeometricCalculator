@@ -9,10 +9,16 @@ namespace AreaFigure.Common
 
         public Figure(params double[] side)
         {
+            СheckExistenceFigure(side);
             lenghSide = side;
         }
 
-        public TypeFigure ShapeTypeFigure(double[] lenghSide)
+        private void СheckExistenceFigure(double[] side)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public TypeFigure ShapeType(double[] lenghSide)
         {
             if (lenghSide.Length == 0)
                 return TypeFigure.point;
