@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigureConsoleApp", "Are
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigure.Common", "AreaFigure.Common\AreaFigure.Common.csproj", "{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigureUnitTest", "AreaFigureUnitTest\AreaFigureUnitTest.csproj", "{9A827FC9-E443-48A4-A8C0-929CD2C03E74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
