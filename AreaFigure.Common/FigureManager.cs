@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace AreaFigure.Common
 {
-    public static class FigureManager
+    public class FigureManager
     {
-        public static Figure CreateFigure(Figure figure)
+        public Figure CreateFigure(Figure figure)
         {
             if (figure.TypeFigure == TypeFigure.point)
                 return new Point(figure.LenghSides);
@@ -23,36 +23,8 @@ namespace AreaFigure.Common
 
             return new Polygone(figure.LenghSides);
         }
-
-        public static string[] TrySplitToArray(string str)
-        {
-            try
-            {
-                var value = str.Split();
-                return value;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-
-        public static Figure TryExistenceFigure(double[] values)
-        {
-            try
-            {
-                Figure.СheckExistenceFigure(values);
-                return new Figure(values);
-            }
-            catch (FigureDoesNotExist e)
-            {
-                Console.WriteLine(e.Message);
-                return null;
-            }
-        }
-
-        public static double[] InputValues(string str)
+        
+        public double[] InputValues(string str)
         {
             if (str == "")
             {
@@ -60,13 +32,13 @@ namespace AreaFigure.Common
             }
 
             str = str.Trim();
-
-            var value = FigureManager.TrySplitToArray(str).Select(double.Parse).ToArray();
+            var tryFigure = new TryFigure();
+            var value = tryFigure.TrySplitToArray(str).Select(double.Parse).ToArray();
 
             return Figure.CollapseNullValues(value);
         }
 
-        public static string OutputSquareFigure(Figure figure)
+        public string OutputSquareFigure(Figure figure)
         {
             string ansver;
             try

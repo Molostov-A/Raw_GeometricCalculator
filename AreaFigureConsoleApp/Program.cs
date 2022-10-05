@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Drawing;
-using System.Linq;
 using AreaFigure.Common;
-using AreaFigure.Common.Exceptions;
 using AreaFigure.Common.Figures;
 
 namespace AreaFigureConsoleApp
 {
     internal class Program
     {
+        private static FigureManager figureManager = new FigureManager();
+        private static TryFigure tryFigure = new TryFigure();
         static void Main(string[] args)
         {
             var figure = CreateFigure();
-            figure = FigureManager.CreateFigure(figure);
+            
+            figure = figureManager.CreateFigure(figure);
             if (figure != null)
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
                 CheckOnTriangleRectangular(figure);
-                Console.WriteLine($"Square = {FigureManager.OutputSquareFigure(figure)}");
+                Console.WriteLine($"Square = {figureManager.OutputSquareFigure(figure)}");
                 
             }
         }
@@ -44,8 +44,8 @@ namespace AreaFigureConsoleApp
             Console.WriteLine("One number - length of the radius of the circle");
             Console.WriteLine("Two values - the length of the sides of the rectangle");
             Console.WriteLine("The three values - lengths of the sides of the triangle");
-            var values = FigureManager.InputValues(Console.ReadLine());
-            return FigureManager.TryExistenceFigure(values);
+            var values = figureManager.InputValues(Console.ReadLine());
+            return tryFigure.TryExistenceFigure(values);
         }
     }
 }
