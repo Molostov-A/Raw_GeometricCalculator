@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AreaFigure.Common.Exceptions;
 
 namespace AreaFigure.Common
@@ -8,15 +9,21 @@ namespace AreaFigure.Common
         private double[] lenghSide;
         
 
-        public Figure(params double[] side)
+        public Figure(params double[] sides)
         {
-            lenghSide = side;
+            lenghSide = CollapseNullValues(sides);
         }
 
         
-        public static void СheckExistenceFigure(params double[] side)
+        public static void СheckExistenceFigure(params double[] sides)
         {
-            //throw new System.NotImplementedException();
+            var checkingSides = CollapseNullValues(sides);
+        }
+
+        public static double[] CollapseNullValues(double[] sides)
+        {
+            var notZeroSide = sides.Select(x => x).Where(x => x != 0).ToArray();
+            return notZeroSide;
         }
 
         public double GetSquare()

@@ -42,20 +42,11 @@ namespace AreaFigureConsoleApp
                 return new double[0];
             }
             var value = str.Split().Select(double.Parse).ToArray();
-            return value;
+            return Figure.CollapseNullValues(value);
         }
 
-        private static void PrintSquare(double a, double b, double c)
-        {
-            if (CheckExistenceTriangle(a, b, c))
-            {
-                Console.WriteLine(GetSquareTriangle(a, b, c));                
-            }
-            else
-            {
-                Console.WriteLine("There is no such triangle");
-            }
-        }
+
+
 
 
 
