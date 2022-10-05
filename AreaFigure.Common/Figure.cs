@@ -15,7 +15,17 @@ namespace AreaFigure.Common
             lenghSides = CollapseNullValues(sides);
         }
 
-        
+        /// <summary>
+        /// Checking that a shape can exist with the given lengths of the sides
+        /// </summary>
+        /// <param name="values">
+        /// Values of the lengths of the sides. 
+        ///Exceptions: 
+        ///1. there are no sides - it is a point
+        ///2. one side is the radius of the circle
+        ///3. two sides are sides of a rectangle
+        /// </param>
+        /// <exception cref="FigureDoesNotExist"></exception>
         public static void СheckExistenceFigure(params double[] values)
         {
             var sides = CollapseNullValues(values);
@@ -30,12 +40,21 @@ namespace AreaFigure.Common
             }
         }
 
+        /// <summary>
+        /// If there are zeros among the lengths, they are removed from the list of sides
+        /// </summary>
+        /// <param name="sides"></param>
+        /// <returns> </returns>
         public static double[] CollapseNullValues(double[] sides)
         {
             var notZeroSide = sides.Select(x => x).Where(x => x != 0).ToArray();
             return notZeroSide;
         }
 
+        /// <summary>
+        /// Get the square of the figure
+        /// </summary>
+        /// <returns></returns>
         public double GetSquare()
         {
             if (lenghSides.Length == 0)
@@ -47,6 +66,16 @@ namespace AreaFigure.Common
             if (lenghSides.Length == 3)
                 return GetSquareTriangle(lenghSides[0], lenghSides[1], lenghSides[2]);
             return GetSquarePolygon(lenghSides);
+        }
+
+        /// <summary>
+        /// Return the shape type as a text string
+        /// </summary>
+        /// <returns></returns>
+        public string GetТypeFigure()
+        {
+            var type = ShapeType(lenghSides);
+            return type.ToString();
         }
 
         private double GetSquareCircle(double radius)
@@ -71,7 +100,7 @@ namespace AreaFigure.Common
             throw new FeatureNotImplemented("this feature has not yet been implemented");
         }
 
-        public TypeFigure ShapeType(double[] lenghSide)
+        private TypeFigure ShapeType(double[] lenghSide)
         {
             if (lenghSide.Length == 0)
                 return TypeFigure.point;
@@ -82,12 +111,6 @@ namespace AreaFigure.Common
             if (lenghSide.Length == 3)
                 return TypeFigure.triangle;
             return TypeFigure.polygon;
-        }
-
-        public string GetТypeFigure()
-        {
-            var type = ShapeType(lenghSides);
-            return type.ToString();
         }
     }
 }

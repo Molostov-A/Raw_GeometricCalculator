@@ -15,8 +15,16 @@ namespace AreaFigureConsoleApp
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigure()}");
                 PrintSquareFigure(figure);
-                
             }
+        }
+        private static Figure CreateFigure()
+        {
+            Console.WriteLine("Enter the parameters of the figure (values with spaces)");
+            Console.WriteLine("One number - length of the radius of the circle");
+            Console.WriteLine("Two values - the length of the sides of the rectangle");
+            Console.WriteLine("The three values - lengths of the sides of the triangle");
+            var values = InputValues();
+            return TryExistenceFigure(values);
         }
 
         private static void PrintSquareFigure(Figure figure)
@@ -31,16 +39,6 @@ namespace AreaFigureConsoleApp
                 ansver = e.Message;
             }
             Console.WriteLine($"Square = {ansver}");
-        }
-
-        private static Figure CreateFigure()
-        {
-            Console.WriteLine("Enter the parameters of the figure (values with spaces)");
-            Console.WriteLine("One number - length of the radius of the circle");
-            Console.WriteLine("Two values - the length of the sides of the rectangle");
-            Console.WriteLine("The three values - lengths of the sides of the triangle");
-            var values = InputValues();
-            return CheckExistenceFigure(values);
         }
 
         private static double[] InputValues()
@@ -72,7 +70,7 @@ namespace AreaFigureConsoleApp
             }
         }
 
-        private static Figure CheckExistenceFigure(double[] values)
+        private static Figure TryExistenceFigure(double[] values)
         {
             try
             {
