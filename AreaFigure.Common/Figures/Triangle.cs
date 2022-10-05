@@ -8,7 +8,12 @@ namespace AreaFigure.Common.Figures
         { }
         public override double GetSquare()
         {
-            return GetSquareTriangle(LenghSides[0], LenghSides[1], LenghSides[2]);
+            var a = LenghSides[0];
+            var b = LenghSides[1];
+            var c = LenghSides[2];
+            var p = (a + b + c) / 2;
+            var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            return s;
         }
         public bool CheckRightTriangle()
         {
@@ -25,13 +30,6 @@ namespace AreaFigure.Common.Figures
                 return true;
 
             return false;
-        }
-
-        private double GetSquareTriangle(double a, double b, double c)
-        {
-            var p = (a + b + c) / 2;
-            var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            return s;
         }
     }
 }
