@@ -7,8 +7,10 @@ namespace AreaFigure.Common
 {
     public class FigureManager
     {
-        public Figure CreateFigure(Figure figure)
+        private TryFigure tryFigure = new TryFigure();
+        public Figure CreateFigure(double[] values)
         {
+            var figure = tryFigure.TryExistenceFigure(values);
             if (figure.TypeFigure == TypeFigure.point)
                 return new Point(figure.LenghSides);
 
@@ -32,7 +34,6 @@ namespace AreaFigure.Common
             }
 
             str = str.Trim();
-            var tryFigure = new TryFigure();
             var value = tryFigure.TrySplitToArray(str).Select(double.Parse).ToArray();
 
             return Figure.CollapseNullValues(value);

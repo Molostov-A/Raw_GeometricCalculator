@@ -11,14 +11,11 @@ namespace AreaFigureConsoleApp
         static void Main(string[] args)
         {
             var figure = CreateFigure();
-            
-            figure = figureManager.CreateFigure(figure);
             if (figure != null)
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
                 CheckOnTriangleRectangular(figure);
                 Console.WriteLine($"Square = {figureManager.OutputSquareFigure(figure)}");
-                
             }
         }
 
@@ -45,7 +42,8 @@ namespace AreaFigureConsoleApp
             Console.WriteLine("Two values - the length of the sides of the rectangle");
             Console.WriteLine("The three values - lengths of the sides of the triangle");
             var values = figureManager.InputValues(Console.ReadLine());
-            return tryFigure.TryExistenceFigure(values);
+            var figure = figureManager.CreateFigure(values);
+            return figure;
         }
     }
 }

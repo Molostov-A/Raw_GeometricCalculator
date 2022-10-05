@@ -3,7 +3,7 @@ using Xunit;
 
 namespace AreaFigureUnitTest
 {
-    public class UnitTest1
+    public class Triangle
     {
         [Fact]
         public void Test1()
