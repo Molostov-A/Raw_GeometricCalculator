@@ -68,7 +68,7 @@ namespace AreaFigure.Common
 
         private double GetSquarePolygon(double[] doubles)
         {
-            throw new System.NotImplementedException();
+            throw new FeatureNotImplemented("this feature has not yet been implemented");
         }
 
         public TypeFigure ShapeType(double[] lenghSide)

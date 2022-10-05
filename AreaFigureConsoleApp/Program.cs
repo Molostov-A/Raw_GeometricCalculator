@@ -14,8 +14,23 @@ namespace AreaFigureConsoleApp
             if (figure != null)
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigure()}");
-                Console.WriteLine($"Square = {figure.GetSquare()}");
+                PrintSquareFigure(figure);
+                
             }
+        }
+
+        private static void PrintSquareFigure(Figure figure)
+        {
+            string ansver;
+            try
+            {
+                ansver = figure.GetSquare().ToString();
+            }
+            catch (FeatureNotImplemented e)
+            {
+                ansver = e.Message;
+            }
+            Console.WriteLine($"Square = {ansver}");
         }
 
         private static Figure CreateFigure()
@@ -35,8 +50,26 @@ namespace AreaFigureConsoleApp
             {
                 return new double[0];
             }
-            var value = str.Split().Select(double.Parse).ToArray();
+
+            str = str.Trim();
+
+            var value = TrySplitToArray(str).Select(double.Parse).ToArray();
+
             return Figure.CollapseNullValues(value);
+        }
+
+        private static string[] TrySplitToArray(string str)
+        {
+            try
+            {
+                var value = str.Split();
+                return value;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private static Figure CheckExistenceFigure(double[] values)
