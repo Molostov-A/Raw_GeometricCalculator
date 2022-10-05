@@ -1,4 +1,6 @@
-﻿namespace AreaFigure.Common
+﻿using System.ComponentModel;
+
+namespace AreaFigure.Common
 {
     public enum TypeFigure
     {

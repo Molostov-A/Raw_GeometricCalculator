@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Drawing;
+using System.Linq;
+using AreaFigure.Common;
+using AreaFigure.Common.Exceptions;
 
 namespace AreaFigureConsoleApp
 {
@@ -6,16 +10,39 @@ namespace AreaFigureConsoleApp
     {
         static void Main(string[] args)
         {
-            double radiusCircle = 5;
-            Console.WriteLine($"Круг с радиусом {radiusCircle}");
-            PrintSquare(radiusCircle);
-            double a = 3;
-            double b = 4;
-            double c = 5;
-            Console.WriteLine($"Треугольник со сторонами {a}, {b}, {c}");
-            PrintSquare(a, b, c);
-            Console.WriteLine($"Прямоугольник со сторонами {b}, {c}");
-            PrintSquare(b,c);
+            var figure = CreateFigure();
+            Console.WriteLine($"Тип фигуры - {figure.GetТypeFigure()}");
+            Console.WriteLine($"Площадь = {figure.GetSquare()}");
+        }
+
+        private static Figure CreateFigure()
+        {
+            Console.WriteLine("Введите параметры фигуры (значения через пробел)");
+            Console.WriteLine("Одно значение - длина радиуса круга");
+            Console.WriteLine("Два значения - длина сторон прямоугольника");
+            Console.WriteLine("Три значения - длины сторон треугольника");
+            var values = InputValues();
+            try
+            {
+                Figure.СheckExistenceFigure();
+                return new Figure(values);
+            }
+            catch (FigureDoesNotExist)
+            {
+                Console.WriteLine("Такой фигуры не существует");
+                return null;
+            }
+        }
+
+        private static double[] InputValues()
+        {
+            var str = Console.ReadLine();
+            if (str == "")
+            {
+                return new double[0];
+            }
+            var value = str.Split().Select(double.Parse).ToArray();
+            return value;
         }
 
         private static void PrintSquare(double a, double b, double c)
@@ -29,6 +56,9 @@ namespace AreaFigureConsoleApp
                 Console.WriteLine("There is no such triangle");
             }
         }
+
+
+
 
         private static void PrintSquare(double a, double b)
         {

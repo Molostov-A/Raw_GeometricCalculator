@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AreaFigure.Common.Exceptions;
 
 namespace AreaFigure.Common
 {
@@ -9,13 +10,18 @@ namespace AreaFigure.Common
 
         public Figure(params double[] side)
         {
-            СheckExistenceFigure(side);
             lenghSide = side;
         }
 
-        private void СheckExistenceFigure(double[] side)
+        
+        public static void СheckExistenceFigure(params double[] side)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+        }
+
+        public double GetSquare()
+        {
+            return 0;
         }
 
         public TypeFigure ShapeType(double[] lenghSide)
@@ -29,6 +35,12 @@ namespace AreaFigure.Common
             if (lenghSide.Length == 3)
                 return TypeFigure.triangle;
             return TypeFigure.polygon;
+        }
+
+        public string GetТypeFigure()
+        {
+            var type = ShapeType(lenghSide);
+            return type.ToString();
         }
     }
 }
