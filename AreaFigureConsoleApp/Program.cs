@@ -7,6 +7,7 @@ namespace AreaFigureConsoleApp
     internal class Program
     {
         private static FigureManager figureManager = new FigureManager();
+
         static void Main(string[] args)
         {
             var figure = CreateFigure();
@@ -16,6 +17,17 @@ namespace AreaFigureConsoleApp
                 CheckOnTriangleRectangular(figure);
                 Console.WriteLine($"Square = {figureManager.OutputSquareFigure(figure)}");
             }
+        }
+
+        private static Figure CreateFigure()
+        {
+            Console.WriteLine("Enter the parameters of the figure (values with spaces)");
+            Console.WriteLine("One number - length of the radius of the circle");
+            Console.WriteLine("Two values - the length of the sides of the rectangle");
+            Console.WriteLine("The three values - lengths of the sides of the triangle");
+            var values = figureManager.InputValues(Console.ReadLine());
+            var figure = figureManager.CreateFigure(values);
+            return figure;
         }
 
         private static void CheckOnTriangleRectangular(Figure figure)
@@ -32,17 +44,6 @@ namespace AreaFigureConsoleApp
                     Console.WriteLine("This triangle is not rectangular");
                 }
             }
-        }
-
-        private static Figure CreateFigure()
-        {
-            Console.WriteLine("Enter the parameters of the figure (values with spaces)");
-            Console.WriteLine("One number - length of the radius of the circle");
-            Console.WriteLine("Two values - the length of the sides of the rectangle");
-            Console.WriteLine("The three values - lengths of the sides of the triangle");
-            var values = figureManager.InputValues(Console.ReadLine());
-            var figure = figureManager.CreateFigure(values);
-            return figure;
         }
     }
 }
