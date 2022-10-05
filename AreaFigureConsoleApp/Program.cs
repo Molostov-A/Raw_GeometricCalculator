@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using AreaFigure.Common;
 using AreaFigure.Common.Exceptions;
+using AreaFigure.Common.Figures;
 
 namespace AreaFigureConsoleApp
 {
@@ -11,9 +12,10 @@ namespace AreaFigureConsoleApp
         static void Main(string[] args)
         {
             var figure = CreateFigure();
+            figure = FigureManager.CreateFigure(figure);
             if (figure != null)
             {
-                Console.WriteLine($"Type of figure - {figure.GetТypeFigure()}");
+                Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
                 PrintSquareFigure(figure);
             }
         }

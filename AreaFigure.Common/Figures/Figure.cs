@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using AreaFigure.Common.Exceptions;
 
-namespace AreaFigure.Common
+namespace AreaFigure.Common.Figures
 {
     public class Figure
     {
-        private double[] lenghSides;
-        
+        public readonly double[] LenghSides;
+        public readonly TypeFigure TypeFigure;
 
         public Figure(params double[] sides)
         {
-            lenghSides = CollapseNullValues(sides);
+            LenghSides = CollapseNullValues(sides);
+            TypeFigure = ShapeType();
         }
 
         /// <summary>
@@ -55,27 +55,31 @@ namespace AreaFigure.Common
         /// Get the square of the figure
         /// </summary>
         /// <returns></returns>
-        public double GetSquare()
+        public virtual double GetSquare()
         {
-            if (lenghSides.Length == 0)
-                return 0;
-            if (lenghSides.Length == 1)
-                return GetSquareCircle(lenghSides[0]);
-            if (lenghSides.Length == 2)
-                return GetSquareRectangle(lenghSides[0], lenghSides[1]);
-            if (lenghSides.Length == 3)
-                return GetSquareTriangle(lenghSides[0], lenghSides[1], lenghSides[2]);
-            return GetSquarePolygon(lenghSides);
+            return -1;
         }
 
         /// <summary>
         /// Return the shape type as a text string
         /// </summary>
         /// <returns></returns>
-        public string GetТypeFigure()
+        public string GetТypeFigureString()
         {
-            var type = ShapeType(lenghSides);
+            var type = ShapeType();
             return type.ToString();
+        }
+        public TypeFigure ShapeType()
+        {
+            if (LenghSides.Length == 0)
+                return TypeFigure.point;
+            if (LenghSides.Length == 1)
+                return TypeFigure.circle;
+            if (LenghSides.Length == 2)
+                return TypeFigure.rectangle;
+            if (LenghSides.Length == 3)
+                return TypeFigure.triangle;
+            return TypeFigure.polygon;
         }
 
         private double GetSquareCircle(double radius)
@@ -90,9 +94,14 @@ namespace AreaFigure.Common
 
         private double GetSquareTriangle(double a, double b, double c)
         {
-            var p = (a + b + c)/2;
-            var s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+            var p = (a + b + c) / 2;
+            var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
             return s;
+        }
+
+        public bool CheckRightTriangle()
+        {
+            return true;
         }
 
         private double GetSquarePolygon(double[] doubles)
@@ -100,17 +109,6 @@ namespace AreaFigure.Common
             throw new FeatureNotImplemented("this feature has not yet been implemented");
         }
 
-        private TypeFigure ShapeType(double[] lenghSide)
-        {
-            if (lenghSide.Length == 0)
-                return TypeFigure.point;
-            if (lenghSide.Length == 1)
-                return TypeFigure.circle;
-            if (lenghSide.Length == 2)
-                return TypeFigure.rectangle;
-            if (lenghSide.Length == 3)
-                return TypeFigure.triangle;
-            return TypeFigure.polygon;
-        }
+
     }
 }
