@@ -7,7 +7,6 @@ namespace AreaFigureConsoleApp
     internal class Program
     {
         private static FigureManager figureManager = new FigureManager();
-        private static TryFigure tryFigure = new TryFigure();
         static void Main(string[] args)
         {
             var figure = CreateFigure();
