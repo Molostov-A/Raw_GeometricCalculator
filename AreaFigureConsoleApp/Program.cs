@@ -22,16 +22,7 @@ namespace AreaFigureConsoleApp
             Console.WriteLine("Два значения - длина сторон прямоугольника");
             Console.WriteLine("Три значения - длины сторон треугольника");
             var values = InputValues();
-            try
-            {
-                Figure.СheckExistenceFigure();
-                return new Figure(values);
-            }
-            catch (FigureDoesNotExist)
-            {
-                Console.WriteLine("Такой фигуры не существует");
-                return null;
-            }
+            return CheckExistenceFigure(values);
         }
 
         private static double[] InputValues()
@@ -45,10 +36,19 @@ namespace AreaFigureConsoleApp
             return Figure.CollapseNullValues(value);
         }
 
-
-
-
-
+        private static Figure CheckExistenceFigure(double[] values)
+        {
+            try
+            {
+                Figure.СheckExistenceFigure();
+                return new Figure(values);
+            }
+            catch (FigureDoesNotExist)
+            {
+                Console.WriteLine("Такой фигуры не существует");
+                return null;
+            }
+        }
 
 
         private static void PrintSquare(double a, double b)
