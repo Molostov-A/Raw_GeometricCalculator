@@ -11,8 +11,11 @@ namespace AreaFigureConsoleApp
         static void Main(string[] args)
         {
             var figure = CreateFigure();
-            Console.WriteLine($"Тип фигуры - {figure.GetТypeFigure()}");
-            Console.WriteLine($"Площадь = {figure.GetSquare()}");
+            if (figure != null)
+            {
+                Console.WriteLine($"Тип фигуры - {figure.GetТypeFigure()}");
+                Console.WriteLine($"Площадь = {figure.GetSquare()}");
+            }
         }
 
         private static Figure CreateFigure()
@@ -40,12 +43,12 @@ namespace AreaFigureConsoleApp
         {
             try
             {
-                Figure.СheckExistenceFigure();
+                Figure.СheckExistenceFigure(values);
                 return new Figure(values);
             }
-            catch (FigureDoesNotExist)
+            catch (FigureDoesNotExist e)
             {
-                Console.WriteLine("Такой фигуры не существует");
+                Console.WriteLine(e.Message);
                 return null;
             }
         }

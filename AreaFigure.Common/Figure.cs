@@ -15,9 +15,18 @@ namespace AreaFigure.Common
         }
 
         
-        public static void СheckExistenceFigure(params double[] sides)
+        public static void СheckExistenceFigure(params double[] values)
         {
-            var checkingSides = CollapseNullValues(sides);
+            var sides = CollapseNullValues(values);
+            if (sides.Length > 2)
+            {
+                var perimeter = sides.Sum();
+                for (int i = 0; i < sides.Length; i++)
+                {
+                    if (perimeter - sides[i] <= sides[i])
+                        throw new FigureDoesNotExist("This figure does not exist");
+                }
+            }
         }
 
         public static double[] CollapseNullValues(double[] sides)
