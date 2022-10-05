@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AreaFigure.Common.Exceptions;
 
@@ -6,12 +7,12 @@ namespace AreaFigure.Common
 {
     public class Figure
     {
-        private double[] lenghSide;
+        private double[] lenghSides;
         
 
         public Figure(params double[] sides)
         {
-            lenghSide = CollapseNullValues(sides);
+            lenghSides = CollapseNullValues(sides);
         }
 
         
@@ -37,7 +38,37 @@ namespace AreaFigure.Common
 
         public double GetSquare()
         {
-            return 0;
+            if (lenghSides.Length == 0)
+                return 0;
+            if (lenghSides.Length == 1)
+                return GetSquareCircle(lenghSides[0]);
+            if (lenghSides.Length == 2)
+                return GetSquareRectangle(lenghSides[0], lenghSides[1]);
+            if (lenghSides.Length == 3)
+                return GetSquareTriangle(lenghSides[0], lenghSides[1], lenghSides[2]);
+            return GetSquarePolygon(lenghSides);
+        }
+
+        private double GetSquareCircle(double radius)
+        {
+            return 2 * Math.PI * Math.Pow(radius, 2);
+        }
+
+        private double GetSquareRectangle(double a, double b)
+        {
+            return a * b;
+        }
+
+        private double GetSquareTriangle(double a, double b, double c)
+        {
+            var p = (a + b + c)/2;
+            var s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+            return s;
+        }
+
+        private double GetSquarePolygon(double[] doubles)
+        {
+            throw new System.NotImplementedException();
         }
 
         public TypeFigure ShapeType(double[] lenghSide)
@@ -55,7 +86,7 @@ namespace AreaFigure.Common
 
         public string GetТypeFigure()
         {
-            var type = ShapeType(lenghSide);
+            var type = ShapeType(lenghSides);
             return type.ToString();
         }
     }
