@@ -16,9 +16,27 @@ namespace AreaFigureConsoleApp
             if (figure != null)
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
+                CheckOnTriangleRectangular(figure);
                 PrintSquareFigure(figure);
             }
         }
+
+        private static void CheckOnTriangleRectangular(Figure figure)
+        {
+            if (figure.TypeFigure == TypeFigure.triangle)
+            {
+                var triangle = (Triangle)figure;
+                if (triangle.CheckRightTriangle())
+                {
+                    Console.WriteLine("This triangle is rectangular");
+                }
+                else
+                {
+                    Console.WriteLine("This triangle is not rectangular");
+                }
+            }
+        }
+
         private static Figure CreateFigure()
         {
             Console.WriteLine("Enter the parameters of the figure (values with spaces)");

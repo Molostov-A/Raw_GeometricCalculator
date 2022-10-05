@@ -82,33 +82,6 @@ namespace AreaFigure.Common.Figures
             return TypeFigure.polygon;
         }
 
-        private double GetSquareCircle(double radius)
-        {
-            return 2 * Math.PI * Math.Pow(radius, 2);
-        }
-
-        private double GetSquareRectangle(double a, double b)
-        {
-            return a * b;
-        }
-
-        private double GetSquareTriangle(double a, double b, double c)
-        {
-            var p = (a + b + c) / 2;
-            var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            return s;
-        }
-
-        public bool CheckRightTriangle()
-        {
-            return true;
-        }
-
-        private double GetSquarePolygon(double[] doubles)
-        {
-            throw new FeatureNotImplemented("this feature has not yet been implemented");
-        }
-
 
     }
 }
