@@ -1,6 +1,7 @@
 using System;
 using AreaFigure.Common;
 using AreaFigure.Common.Figures;
+using AreaFigure.Common.Helpers;
 using Xunit;
 
 namespace AreaFigureUnitTest
@@ -15,10 +16,10 @@ namespace AreaFigureUnitTest
         public void OutputSquareFigure_TriangleSquare_TrueResult(string input, double output)
         {
             
-            var values = figureManager.InputValues(input);
+            var values = Converter.ToDoubleArray(input);
             var figure = figureManager.CreateFigure(values);
 
-            var resultText = figureManager.OutputSquareFigure(figure);
+            var resultText = figureManager.OutputSquareOrFalied(figure);
             var resultDouble = Convert.ToDouble(resultText);
 
             var result = Math.Round(resultDouble, 5);

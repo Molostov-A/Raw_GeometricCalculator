@@ -2,15 +2,30 @@
 using AreaFigure.Common.Figures;
 using System;
 using System.Linq;
+using AreaFigure.Common.Interface;
 
 namespace AreaFigure.Common
 {
-    public class FigureManager
+    public class FigureManager:IFigureManager
     {
-        private TryFigure tryFigure = new TryFigure();
+        public string OutputSquareOrFalied(Figure figure)
+        {
+           string ansver;
+           try
+           {
+               ansver = figure.GetSquare().ToString();
+           }
+           catch (FeatureNotImplemented e)
+           {
+               figure.FailedMassage = e.Message;
+               ansver = e.Message;
+           }
+           return ansver;
+        }
+
         public Figure CreateFigure(double[] values)
         {
-            var figure = tryFigure.TryExistenceFigure(values);
+            var figure = TryExistenceFigure(values);
             if (figure.TypeFigure == TypeFigure.point)
                 return new Point(figure.LenghSides);
 
@@ -25,32 +40,19 @@ namespace AreaFigure.Common
 
             return new Polygone(figure.LenghSides);
         }
-        
-        public double[] InputValues(string str)
+
+        private Figure TryExistenceFigure(double[] values)
         {
-            if (str == "")
-            {
-                return new double[0];
-            }
-
-            str = str.Trim();
-            var value = tryFigure.TrySplitToArray(str).Select(double.Parse).ToArray();
-
-            return Figure.CollapseNullValues(value);
-        }
-
-        public string OutputSquareFigure(Figure figure)
-        {
-            string ansver;
             try
             {
-                ansver = figure.GetSquare().ToString();
+                Figure.СheckExistenceFigure(values);
+                return new Figure(values);
             }
-            catch (FeatureNotImplemented e)
+            catch (FigureDoesNotExist e)
             {
-                ansver = e.Message;
+                Console.WriteLine(e.Message);
+                return null;
             }
-            return ansver;
         }
     }
 }

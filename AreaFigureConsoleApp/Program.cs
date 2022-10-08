@@ -1,6 +1,7 @@
 ﻿using System;
 using AreaFigure.Common;
 using AreaFigure.Common.Figures;
+using AreaFigure.Common.Helpers;
 
 namespace AreaFigureConsoleApp
 {
@@ -15,7 +16,7 @@ namespace AreaFigureConsoleApp
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
                 CheckOnTriangleRectangular(figure);
-                Console.WriteLine($"Square = {figureManager.OutputSquareFigure(figure)}");
+                Console.WriteLine($"Square = {figureManager.OutputSquareOrFalied(figure)}");
             }
         }
 
@@ -25,7 +26,7 @@ namespace AreaFigureConsoleApp
             Console.WriteLine("One number - length of the radius of the circle");
             Console.WriteLine("Two values - the length of the sides of the rectangle");
             Console.WriteLine("The three values - lengths of the sides of the triangle");
-            var values = figureManager.InputValues(Console.ReadLine());
+            var values = Converter.ToDoubleArray(Console.ReadLine());
             var figure = figureManager.CreateFigure(values);
             return figure;
         }
