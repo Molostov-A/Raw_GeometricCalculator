@@ -15,7 +15,7 @@ namespace AreaFigureUnitTest
         public void OutputSquareFigure_TriangleSquare_TrueResult(string input, double output)
         {
             
-            var values = figureManager.InputValues(input);
+            var values = figureManager.ToDoubleArray(input);
             var figure = figureManager.CreateFigure(values);
 
             var resultText = figureManager.OutputSquareFigure(figure);

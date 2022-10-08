@@ -10,7 +10,7 @@ namespace AreaFigure.Common
         private TryFigure tryFigure = new TryFigure();
         public Figure CreateFigure(double[] values)
         {
-            var figure = tryFigure.TryExistenceFigure(values);
+            var figure = TryExistenceFigure(values);
             if (figure.TypeFigure == TypeFigure.point)
                 return new Point(figure.LenghSides);
 
@@ -25,18 +25,19 @@ namespace AreaFigure.Common
 
             return new Polygone(figure.LenghSides);
         }
-        
-        public double[] InputValues(string str)
+
+        private Figure TryExistenceFigure(double[] values)
         {
-            if (str == "")
+            try
             {
-                return new double[0];
+                Figure.СheckExistenceFigure(values);
+                return new Figure(values);
             }
-
-            str = str.Trim();
-            var value = tryFigure.TrySplitToArray(str).Select(double.Parse).ToArray();
-
-            return Figure.CollapseNullValues(value);
+            catch (FigureDoesNotExist e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
 
         public string OutputSquareFigure(Figure figure)
