@@ -69,6 +69,7 @@ namespace AreaFigure.Common.Figures
             var type = ShapeType();
             return type.ToString();
         }
+
         public TypeFigure ShapeType()
         {
             if (LenghSides.Length == 0)
@@ -81,7 +82,5 @@ namespace AreaFigure.Common.Figures
                 return TypeFigure.triangle;
             return TypeFigure.polygon;
         }
-
-
     }
 }

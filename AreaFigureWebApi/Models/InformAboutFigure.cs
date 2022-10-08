@@ -12,5 +12,11 @@ namespace AreaFigureWebApi.Models
 
         [JsonPropertyName("square")]
         public double Square { get; set; }
+
+        [JsonPropertyName("result")]
+        public string Result { get; set; }
+
+        [JsonPropertyName("failedMassage")]
+        public string FailedMassage { get; set; }
     }
 }

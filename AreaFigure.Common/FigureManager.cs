@@ -7,8 +7,7 @@ namespace AreaFigure.Common
 {
     public class FigureManager
     {
-        private TryFigure tryFigure = new TryFigure();
-        public Figure CreateFigure(double[] values)
+       public Figure CreateFigure(double[] values)
         {
             var figure = TryExistenceFigure(values);
             if (figure.TypeFigure == TypeFigure.point)
@@ -26,6 +25,20 @@ namespace AreaFigure.Common
             return new Polygone(figure.LenghSides);
         }
 
+        public string OutputSquareFigure(Figure figure)
+        {
+            string ansver;
+            try
+            {
+                ansver = figure.GetSquare().ToString();
+            }
+            catch (FeatureNotImplemented e)
+            {
+                ansver = e.Message;
+            }
+            return ansver;
+        }
+
         private Figure TryExistenceFigure(double[] values)
         {
             try
@@ -40,18 +53,6 @@ namespace AreaFigure.Common
             }
         }
 
-        public string OutputSquareFigure(Figure figure)
-        {
-            string ansver;
-            try
-            {
-                ansver = figure.GetSquare().ToString();
-            }
-            catch (FeatureNotImplemented e)
-            {
-                ansver = e.Message;
-            }
-            return ansver;
-        }
+
     }
 }
