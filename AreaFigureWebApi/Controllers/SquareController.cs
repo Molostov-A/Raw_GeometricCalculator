@@ -1,8 +1,11 @@
-﻿using AreaFigure.Common.Interface;
+﻿using AreaFigure.Common.Figures;
+using AreaFigure.Common.Interface;
 using AreaFigureWebApi.Helpers;
 using AreaFigureWebApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using AreaFigure.Common.Helpers;
 
 namespace AreaFigureWebApi.Controllers
 {
@@ -16,15 +19,23 @@ namespace AreaFigureWebApi.Controllers
             _figureManager = figureManager;
         }
 
+        public IActionResult Get()
+        {
+            var welcome = "Enter the parameters of the figure \nJSON format: \n{\r\n    \"values\" : [double, ...]\r\n})";
+            return new ObjectResult(welcome);
+        }
+
         [HttpPost]
-        public IActionResult Create(InputValuesFigure item)
+        public IActionResult Create([FromBody] InputValuesFigure item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
             var figure = _figureManager.CreateFigure(item.Values);
-            return new ObjectResult(Mapping.ToInformAboutFigure(figure));
+            var figureInfo = Mapping.ToInformAboutFigure(figure);
+            return new ObjectResult(figureInfo);
         }
+
     }
 }
