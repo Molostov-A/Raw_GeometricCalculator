@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Interface\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
   <ItemGroup>

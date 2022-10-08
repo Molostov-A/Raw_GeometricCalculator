@@ -1,9 +1,12 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AreaFigureWebApi.Models
 {
-    public class InformAboutFigure
+    public class InformAboutFigure 
     {
+
         [JsonPropertyName("type")]
         public string Type { get; set; }
 
