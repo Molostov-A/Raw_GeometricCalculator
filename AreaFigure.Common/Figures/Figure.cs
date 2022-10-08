@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.Json.Serialization;
 using AreaFigure.Common.Exceptions;
 
 namespace AreaFigure.Common.Figures
@@ -8,7 +9,8 @@ namespace AreaFigure.Common.Figures
     {
         public readonly double[] LenghSides;
         public readonly TypeFigure TypeFigure;
-
+        public double Square { get; set; }
+        public string FailedMassage { get; set; }
         public Figure(params double[] sides)
         {
             LenghSides = CollapseNullValues(sides);

@@ -16,7 +16,7 @@ namespace AreaFigureConsoleApp
             {
                 Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
                 CheckOnTriangleRectangular(figure);
-                Console.WriteLine($"Square = {figureManager.OutputSquareFigure(figure)}");
+                Console.WriteLine($"Square = {figureManager.OutputSquareOrFalied(figure)}");
             }
         }
 

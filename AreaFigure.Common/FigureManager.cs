@@ -25,7 +25,7 @@ namespace AreaFigure.Common
             return new Polygone(figure.LenghSides);
         }
 
-        public string OutputSquareFigure(Figure figure)
+       public string OutputSquareOrFalied(Figure figure)
         {
             string ansver;
             try
@@ -34,6 +34,7 @@ namespace AreaFigure.Common
             }
             catch (FeatureNotImplemented e)
             {
+                figure.FailedMassage = e.Message;
                 ansver = e.Message;
             }
             return ansver;
