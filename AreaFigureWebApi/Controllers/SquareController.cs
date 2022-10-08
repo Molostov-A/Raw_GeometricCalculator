@@ -7,6 +7,6 @@ namespace AreaFigureWebApi.Controllers
     [ApiController]
     public class SquareController : ControllerBase
     {
-
+       // public 
     }
 }

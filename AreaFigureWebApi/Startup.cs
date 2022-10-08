@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AreaFigure.Common;
+using AreaFigure.Common.Interface;
 
 namespace AreaFigureWebApi
 {
@@ -26,6 +28,7 @@ namespace AreaFigureWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IFigureManager,FigureManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

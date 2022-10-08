@@ -2,12 +2,28 @@
 using AreaFigure.Common.Figures;
 using System;
 using System.Linq;
+using AreaFigure.Common.Interface;
 
 namespace AreaFigure.Common
 {
-    public class FigureManager
+    public class FigureManager:IFigureManager
     {
-       public Figure CreateFigure(double[] values)
+        public string OutputSquareOrFalied(Figure figure)
+        {
+           string ansver;
+           try
+           {
+               ansver = figure.GetSquare().ToString();
+           }
+           catch (FeatureNotImplemented e)
+           {
+               figure.FailedMassage = e.Message;
+               ansver = e.Message;
+           }
+           return ansver;
+        }
+
+        public Figure CreateFigure(double[] values)
         {
             var figure = TryExistenceFigure(values);
             if (figure.TypeFigure == TypeFigure.point)
@@ -25,21 +41,6 @@ namespace AreaFigure.Common
             return new Polygone(figure.LenghSides);
         }
 
-       public string OutputSquareOrFalied(Figure figure)
-        {
-            string ansver;
-            try
-            {
-                ansver = figure.GetSquare().ToString();
-            }
-            catch (FeatureNotImplemented e)
-            {
-                figure.FailedMassage = e.Message;
-                ansver = e.Message;
-            }
-            return ansver;
-        }
-
         private Figure TryExistenceFigure(double[] values)
         {
             try
@@ -53,7 +54,5 @@ namespace AreaFigure.Common
                 return null;
             }
         }
-
-
     }
 }
