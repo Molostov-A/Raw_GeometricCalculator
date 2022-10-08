@@ -36,6 +36,5 @@ namespace AreaFigureWebApi.Controllers
             var figureInfo = Mapping.ToInformAboutFigure(figure);
             return new ObjectResult(figureInfo);
         }
-
     }
 }
