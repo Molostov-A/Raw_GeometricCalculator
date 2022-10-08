@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigureConsoleApp", "AreaFigureConsoleApp\AreaFigureConsoleApp.csproj", "{DD1B3557-DEA4-4303-87A6-D167F393A132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaFigureConsoleApp", "AreaFigureConsoleApp\AreaFigureConsoleApp.csproj", "{DD1B3557-DEA4-4303-87A6-D167F393A132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigure.Common", "AreaFigure.Common\AreaFigure.Common.csproj", "{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaFigure.Common", "AreaFigure.Common\AreaFigure.Common.csproj", "{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigureUnitTest", "AreaFigureUnitTest\AreaFigureUnitTest.csproj", "{9A827FC9-E443-48A4-A8C0-929CD2C03E74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaFigureUnitTest", "AreaFigureUnitTest\AreaFigureUnitTest.csproj", "{9A827FC9-E443-48A4-A8C0-929CD2C03E74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaFigureWebApi", "AreaFigureWebApi\AreaFigureWebApi.csproj", "{EF1756FD-CE9D-4955-8D0A-A862552BFC4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A827FC9-E443-48A4-A8C0-929CD2C03E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1756FD-CE9D-4955-8D0A-A862552BFC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1756FD-CE9D-4955-8D0A-A862552BFC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1756FD-CE9D-4955-8D0A-A862552BFC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1756FD-CE9D-4955-8D0A-A862552BFC4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
