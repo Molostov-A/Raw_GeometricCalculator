@@ -1,11 +1,8 @@
-﻿using AreaFigure.Common.Figures;
-using AreaFigure.Common.Interface;
+﻿using AreaFigure.Common.Abstract;
+using AreaFigure.Common.Figures;
 using AreaFigureWebApi.Helpers;
 using AreaFigureWebApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using AreaFigure.Common.Helpers;
 
 namespace AreaFigureWebApi.Controllers
 {
@@ -13,8 +10,8 @@ namespace AreaFigureWebApi.Controllers
     [ApiController]
     public class SquareController : ControllerBase
     {
-        private readonly IFigureManager _figureManager;
-        public SquareController(IFigureManager figureManager)
+        private readonly IStrategyShape<Shape> _figureManager;
+        public SquareController(IStrategyShape<Shape> figureManager)
         {
             _figureManager = figureManager;
         }
@@ -32,8 +29,9 @@ namespace AreaFigureWebApi.Controllers
             {
                 return BadRequest();
             }
-            var figure = _figureManager.CreateFigure(item.Values);
-            var figureInfo = Mapping.ToInformAboutFigure(figure);
+            _figureManager.Create(item.Values);
+            var shape = _figureManager.GetShape();
+            var figureInfo = Mapping.ToInformAboutFigure(shape);
             return new ObjectResult(figureInfo);
         }
     }

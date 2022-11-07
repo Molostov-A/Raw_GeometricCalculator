@@ -16,7 +16,7 @@ namespace AreaFigure.Common.Helpers
             str = str.Trim();
             var value = TrySplitToArray(str).Select(double.Parse).ToArray();
 
-            return Figure.CollapseNullValues(value);
+            return value;
         }
 
         public static string[] TrySplitToArray(string str)

@@ -1,5 +1,6 @@
 ﻿using System;
 using AreaFigure.Common;
+using AreaFigure.Common.Exceptions;
 using AreaFigure.Common.Figures;
 using AreaFigure.Common.Helpers;
 
@@ -7,35 +8,29 @@ namespace AreaFigureConsoleApp
 {
     internal class Program
     {
-        private static FigureManager figureManager = new FigureManager();
-
+        static StrategyShape shapeManager = new StrategyShape();
         static void Main(string[] args)
         {
-            var figure = CreateFigure();
-            if (figure != null)
-            {
-                Console.WriteLine($"Type of figure - {figure.GetТypeFigureString()}");
-                CheckOnTriangleRectangular(figure);
-                Console.WriteLine($"Square = {figureManager.OutputSquareOrFalied(figure)}");
-            }
+            CreateShape();
+            Console.WriteLine($"Type of figure - {shapeManager.GetShape().GetTypeShape()}");
+            CheckOnTriangleRectangular();
+            Console.WriteLine($"Square = {shapeManager.GetShape().GetSquare()}");
         }
 
-        private static Figure CreateFigure()
+        private static void CreateShape()
         {
             Console.WriteLine("Enter the parameters of the figure (values with spaces)");
             Console.WriteLine("One number - length of the radius of the circle");
-            Console.WriteLine("Two values - the length of the sides of the rectangle");
             Console.WriteLine("The three values - lengths of the sides of the triangle");
             var values = Converter.ToDoubleArray(Console.ReadLine());
-            var figure = figureManager.CreateFigure(values);
-            return figure;
+            TryCreateFigure(values);
         }
 
-        private static void CheckOnTriangleRectangular(Figure figure)
+        private static void CheckOnTriangleRectangular()
         {
-            if (figure.TypeFigure == TypeFigure.triangle)
+            if (shapeManager.GetShape().GetTypeShape() == TypeShape.triangle.ToString())
             {
-                var triangle = (Triangle)figure;
+                var triangle = (Triangle)shapeManager.GetShape();
                 if (triangle.CheckRightTriangle())
                 {
                     Console.WriteLine("This triangle is rectangular");
@@ -44,6 +39,18 @@ namespace AreaFigureConsoleApp
                 {
                     Console.WriteLine("This triangle is not rectangular");
                 }
+            }
+        }
+
+        private static void TryCreateFigure(double[] values)
+        {
+            try
+            {
+                shapeManager.Create(values);
+            }
+            catch (FigureDoesNotExist e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
