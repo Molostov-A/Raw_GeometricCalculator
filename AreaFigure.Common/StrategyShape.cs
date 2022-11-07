@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AreaFigure.Common.Abstract;
 using AreaFigure.Common.Exceptions;
@@ -14,28 +15,27 @@ namespace AreaFigure.Common
         {
             shape = Guard.Argument(new Shape(values), nameof(values)).NotNull();
             CheckExistenceShape(shape);
-            var type = GetTypeShape();
-            if (type == TypeShape.Roster[0])
+            if (shape.LenghSides.Length == 0)
             {
                 var shapeFigure = new Point(shape.LenghSides);
                 shape = shapeFigure;
             }
-            if (type == TypeShape.Roster[1])
+            if (shape.LenghSides.Length == 1)
             {
                 var shapeFigure = new Circle(shape.LenghSides);
                 shape = shapeFigure;
             }
-            if (type == TypeShape.Roster[2])
+            if (shape.LenghSides.Length == 2)
             {
                 var shapeFigure = new Rectangle(shape.LenghSides);
                 shape = shapeFigure;
             }
-            if (type == TypeShape.Roster[3])
+            if (shape.LenghSides.Length == 3)
             {
                 var shapeFigure = new Triangle(shape.LenghSides);
                 shape = shapeFigure;
             }
-            if (type == TypeShape.DefoultType)
+            if (shape.LenghSides.Length > 3)
             {
                 var shapeFigure = new Polygone(shape.LenghSides);
                 shape = shapeFigure;
@@ -59,16 +59,7 @@ namespace AreaFigure.Common
 
         public string GetTypeShape()
         {
-            foreach (var el in TypeShape.Roster)
-            {
-                if (el.Key == shape.LenghSides.Length)
-                {
-                    return el.Value;
-                }
-            }
-            if(shape.LenghSides.Length > 3)
-                return TypeShape.DefoultType;
-            return "shape";
+            return shape.GetTypeShape();
         }
 
         /// <summary>
