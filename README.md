@@ -20,7 +20,6 @@
         3,
         5
     ],
-    "square": 15,
-    "failedMassage": null
+    "square": 15
 }
 ```
