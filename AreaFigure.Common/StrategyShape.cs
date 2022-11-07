@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Dawn;
 using SquareShape.Common.Abstract;
 using SquareShape.Common.Exceptions;
@@ -11,6 +9,11 @@ namespace SquareShape.Common
     public class StrategyShape : IStrategyShape<Shape>
     {
         private Shape shape { get; set; }
+
+        /// <summary>
+        /// Создание фигуры, в соответствие с количеством введённых сторон
+        /// </summary>
+        /// <param name="values">количество введенных сторон</param>
         public void Create(double[] values)
         {
             shape = Guard.Argument(new Shape(values), nameof(values)).NotNull();
@@ -47,22 +50,21 @@ namespace SquareShape.Common
             }
         }
 
+        /// <summary>
+        /// Вывод упакованной фигуры
+        /// </summary>
+        /// <returns></returns>
         public Shape GetShape()
         {
             return shape;
         }
 
-        /// <summary>
-        /// Checking that a shape can exist with the given lengths of the sides
-        /// </summary>
-        /// <param name="values">
-        /// Values of the lengths of the sides. 
-        ///Exceptions: 
-        ///1. there are no sides - it is a point
-        ///2. one side is the radius of the circle
-        ///3. two sides are sides of a rectangle
-        /// </param>
-        /// <exception cref="FigureDoesNotExist"></exception>
+        ///  <summary>
+        ///  Проверка того, что фигура может существовать с заданными длинами сторон
+        ///  </summary>
+        ///  <exception cref="FigureDoesNotExist">
+        /// Ошибка, которая означает что такая фигура не может существовать 
+        /// </exception>
         private static void CheckExistenceShape(Shape shape)
         {
             var sides = shape.LenghSides;

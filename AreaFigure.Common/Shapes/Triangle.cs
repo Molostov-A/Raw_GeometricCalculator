@@ -5,8 +5,7 @@ namespace SquareShape.Common.Shapes
     public class Triangle : Shape
     {
         public Triangle(){}
-        public Triangle(params double[] sides) : base(sides)
-        { }
+        public Triangle(params double[] sides) : base(sides) { }
 
         private protected override void SetSquare()
         {
@@ -15,8 +14,13 @@ namespace SquareShape.Common.Shapes
             var c = LenghSides[2];
             var p = (a + b + c) / 2;
             var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            square = s;
+            Square = s;
         }
+
+        /// <summary>
+        /// Проверка, является ли треугольник прямоугольным
+        /// </summary>
+        /// <returns></returns>
         public bool CheckRightTriangle()
         {
             var a = LenghSides[0];

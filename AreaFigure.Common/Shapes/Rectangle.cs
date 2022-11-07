@@ -3,12 +3,11 @@
     public class Rectangle : Shape
     {
         public Rectangle(){}
-        public Rectangle(params double[] sides) : base(sides)
-        { }
+        public Rectangle(params double[] sides) : base(sides) { }
 
         private protected override void SetSquare()
         {
-            square = GetSquareRectangle(LenghSides[0], LenghSides[1]);
+            Square = GetSquareRectangle(LenghSides[0], LenghSides[1]);
         }
         private double GetSquareRectangle(double a, double b)
         {

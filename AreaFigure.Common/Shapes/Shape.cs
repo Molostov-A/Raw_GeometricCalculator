@@ -5,14 +5,12 @@ namespace SquareShape.Common.Shapes
 {
     public class Shape : ISquareShape, IShape
     {
-
+        /// <summary>
+        /// Длины сторон
+        /// </summary>
         public double[] LenghSides { get; }
-        private protected double square;
+        private protected double Square;
         private readonly string _type;
-        public string GetTypeShape()
-        {
-            return _type;
-        }
         public Shape(){}
         public Shape(double[] lenghSides)
         {
@@ -22,9 +20,18 @@ namespace SquareShape.Common.Shapes
         }
 
         /// <summary>
-        /// If there are zeros among the lengths, they are removed from the list of sides
+        /// Вывод типа фигуры
         /// </summary>
-        /// <param name="sides"></param>
+        /// <returns></returns>
+        public string GetTypeShape()
+        {
+            return _type;
+        }
+
+        /// <summary>
+        /// Если среди длин есть нули, метод удаляет их из списка сторон
+        /// </summary>
+        /// <param name="sides">Длины сторон</param>
         /// <returns> </returns>
         private static double[] CollapseNullValues(double[] sides)
         {
@@ -32,14 +39,18 @@ namespace SquareShape.Common.Shapes
             return notZeroSide;
         }
 
+        /// <summary>
+        /// Вывод вычесленной, при создании объекта, площади фигуры
+        /// </summary>
+        /// <returns></returns>
         public double GetSquare()
         {
-            return square;
+            return Square;
         }
 
         private protected virtual void SetSquare()
         {
-            square = -1;
+            Square = -1;
         }
     }
 }

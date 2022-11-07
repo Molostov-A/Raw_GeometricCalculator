@@ -3,11 +3,11 @@
     public class Point : Shape
     {
         public Point() { }
-        public Point(params double[] sides) : base(sides)
-        { }
+        public Point(params double[] sides) : base(sides) { }
+
         private protected override void SetSquare()
         {
-            square = 0;
+            Square = 0;
         }
     }
 }
