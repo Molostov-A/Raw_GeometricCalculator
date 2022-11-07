@@ -14,7 +14,7 @@ namespace SquareShape.Common
         /// Создание фигуры, в соответствие с количеством введённых сторон
         /// </summary>
         /// <param name="values">количество введенных сторон</param>
-        public void Create(double[] values)
+        public virtual void Create(double[] values)
         {
             shape = Guard.Argument(new Shape(values), nameof(values)).NotNull();
             CheckExistenceShape(shape);
