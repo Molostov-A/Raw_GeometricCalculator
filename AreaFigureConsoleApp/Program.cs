@@ -1,10 +1,10 @@
 ﻿using System;
-using AreaFigure.Common;
-using AreaFigure.Common.Exceptions;
-using AreaFigure.Common.Helpers;
-using AreaFigure.Common.Shapes;
+using SquareShape.Common;
+using SquareShape.Common.Exceptions;
+using SquareShape.Common.Helpers;
+using SquareShape.Common.Shapes;
 
-namespace AreaFigureConsoleApp
+namespace SquareShape.ConsoleApp
 {
     internal class Program
     {

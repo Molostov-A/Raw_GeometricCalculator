@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AreaFigureWebApi.Models
+namespace SquareShape.WebApi.Models
 {
     public class InformAboutFigure 
     {

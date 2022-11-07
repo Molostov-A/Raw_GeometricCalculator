@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AreaFigureWebApi
+namespace SquareShape.WebApi
 {
     public class Program
     {

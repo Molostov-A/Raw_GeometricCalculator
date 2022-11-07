@@ -1,8 +1,8 @@
-﻿using AreaFigure.Common;
-using AreaFigure.Common.Shapes;
-using AreaFigureWebApi.Models;
+﻿using SquareShape.Common;
+using SquareShape.Common.Shapes;
+using SquareShape.WebApi.Models;
 
-namespace AreaFigureWebApi.Helpers
+namespace SquareShape.WebApi.Helpers
 {
     public static class Mapping
     {

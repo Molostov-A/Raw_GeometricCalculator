@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AreaFigure.Common.Exceptions
+namespace SquareShape.Common.Exceptions
 {
     public class FeatureNotImplemented : Exception
     {

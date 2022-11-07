@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace AreaFigureWebApi.Models
+namespace SquareShape.WebApi.Models
 {
     public class InputValuesFigure
     {

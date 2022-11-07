@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AreaFigure.Common;
-using AreaFigure.Common.Abstract;
-using AreaFigure.Common.Shapes;
+using SquareShape.Common;
+using SquareShape.Common.Abstract;
+using SquareShape.Common.Shapes;
 
-namespace AreaFigureWebApi
+namespace SquareShape.WebApi
 {
     public class Startup
     {

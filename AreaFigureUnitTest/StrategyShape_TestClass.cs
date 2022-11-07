@@ -1,10 +1,10 @@
 using System;
-using AreaFigure.Common;
-using AreaFigure.Common.Helpers;
-using AreaFigure.Common.Shapes;
+using SquareShape.Common;
+using SquareShape.Common.Helpers;
+using SquareShape.Common.Shapes;
 using Xunit;
 
-namespace AreaFigureUnitTest
+namespace SquareShape.XUnitTest
 {
     public class StrategyShape_TestClass
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace AreaFigure.Common.Helpers
+namespace SquareShape.Common.Helpers
 {
     public static class Converter
     {

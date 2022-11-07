@@ -1,6 +1,6 @@
-﻿using AreaFigure.Common.Exceptions;
+﻿using SquareShape.Common.Exceptions;
 
-namespace AreaFigure.Common.Shapes
+namespace SquareShape.Common.Shapes
 {
     public class Polygone : Shape
     {

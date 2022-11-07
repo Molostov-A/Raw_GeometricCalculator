@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using AreaFigure.Common.Abstract;
+using SquareShape.Common.Abstract;
 
-namespace AreaFigure.Common.Shapes
+namespace SquareShape.Common.Shapes
 {
     public class Shape : ISquareShape, IShape
     {

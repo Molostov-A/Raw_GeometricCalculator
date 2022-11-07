@@ -1,4 +1,4 @@
-﻿namespace AreaFigure.Common.Abstract
+﻿namespace SquareShape.Common.Abstract
 {
     public interface ISquareShape
     {

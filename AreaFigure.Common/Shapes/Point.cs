@@ -1,4 +1,4 @@
-﻿namespace AreaFigure.Common.Shapes
+﻿namespace SquareShape.Common.Shapes
 {
     public class Point : Shape
     {

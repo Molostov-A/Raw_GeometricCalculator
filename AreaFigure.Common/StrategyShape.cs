@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AreaFigure.Common.Abstract;
-using AreaFigure.Common.Exceptions;
-using AreaFigure.Common.Shapes;
 using Dawn;
+using SquareShape.Common.Abstract;
+using SquareShape.Common.Exceptions;
+using SquareShape.Common.Shapes;
 
-namespace AreaFigure.Common
+namespace SquareShape.Common
 {
     public class StrategyShape : IStrategyShape<Shape>
     {
