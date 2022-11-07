@@ -12,9 +12,9 @@ namespace AreaFigureConsoleApp
         static void Main(string[] args)
         {
             CreateShape();
-            Console.WriteLine($"Type of figure - {shapeManager.GetTypeShape()}");
+            Console.WriteLine($"Type of figure - {shapeManager.GetShape().GetTypeShape()}");
             CheckOnTriangleRectangular();
-            Console.WriteLine($"Square = {shapeManager.GetSquare()}");
+            Console.WriteLine($"Square = {shapeManager.GetShape().GetSquare()}");
         }
 
         private static void CreateShape()
@@ -28,7 +28,7 @@ namespace AreaFigureConsoleApp
 
         private static void CheckOnTriangleRectangular()
         {
-            if (shapeManager.GetTypeShape() == new Triangle().GetType().Name.ToLower())
+            if (shapeManager.GetShape().GetTypeShape() == new Triangle().GetType().Name.ToLower())
             {
                 Triangle triangle = (Triangle)shapeManager.GetShape();
                 if (triangle.CheckRightTriangle())
