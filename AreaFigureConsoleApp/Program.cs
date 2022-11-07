@@ -28,7 +28,7 @@ namespace AreaFigureConsoleApp
 
         private static void CheckOnTriangleRectangular()
         {
-            if (shapeManager.GetTypeShape() == TypeShape.Roster[3])
+            if (shapeManager.GetTypeShape() == new Triangle().GetType().Name.ToLower())
             {
                 Triangle triangle = (Triangle)shapeManager.GetShape();
                 if (triangle.CheckRightTriangle())
