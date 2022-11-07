@@ -5,5 +5,6 @@
     {
         void Create(double[] values);
         TShape GetShape();
+        double GetSquare();
     }
 }

@@ -1,25 +1,74 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using AreaFigure.Common.Abstract;
 using AreaFigure.Common.Exceptions;
-using AreaFigure.Common.Figures;
+using AreaFigure.Common.Shapes;
 using Dawn;
 
 namespace AreaFigure.Common
 {
     public class StrategyShape : IStrategyShape<Shape>
     {
-        //public IStrategyShape Shape { get; }
         private Shape shape { get; set; }
         public void Create(double[] values)
         {
-            var shape = Guard.Argument(new Shape(values), nameof(values)).NotNull(); ;
+            shape = Guard.Argument(new Shape(values), nameof(values)).NotNull();
             CheckExistenceShape(shape);
-            this.shape = shape;
+            var type = GetTypeShape();
+            if (type == TypeShape.Roster[0])
+            {
+                var shapeFigure = new Point(shape.LenghSides);
+                shape = shapeFigure;
+            }
+            if (type == TypeShape.Roster[1])
+            {
+                var shapeFigure = new Circle(shape.LenghSides);
+                shape = shapeFigure;
+            }
+            if (type == TypeShape.Roster[2])
+            {
+                var shapeFigure = new Rectangle(shape.LenghSides);
+                shape = shapeFigure;
+            }
+            if (type == TypeShape.Roster[3])
+            {
+                var shapeFigure = new Triangle(shape.LenghSides);
+                shape = shapeFigure;
+            }
+            if (type == TypeShape.DefoultType)
+            {
+                var shapeFigure = new Polygone(shape.LenghSides);
+                shape = shapeFigure;
+            }
+            else
+            {
+                var shapeFigure = shape;
+                shape = shapeFigure;
+            }
         }
 
         public Shape GetShape()
         {
             return shape;
+        }
+
+        public double GetSquare()
+        {
+            return shape.GetSquare();
+        }
+
+        public string GetTypeShape()
+        {
+            foreach (var el in TypeShape.Roster)
+            {
+                if (el.Key == shape.LenghSides.Length)
+                {
+                    return el.Value;
+                }
+            }
+            if(shape.LenghSides.Length > 3)
+                return TypeShape.DefoultType;
+            return "shape";
         }
 
         /// <summary>
