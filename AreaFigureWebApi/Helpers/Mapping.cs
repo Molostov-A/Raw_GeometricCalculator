@@ -1,5 +1,5 @@
 ﻿using AreaFigure.Common;
-using AreaFigure.Common.Figures;
+using AreaFigure.Common.Shapes;
 using AreaFigureWebApi.Models;
 
 namespace AreaFigureWebApi.Helpers

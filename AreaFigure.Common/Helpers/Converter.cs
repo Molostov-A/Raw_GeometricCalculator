@@ -1,5 +1,4 @@
-﻿using AreaFigure.Common.Figures;
-using System;
+﻿using System;
 using System.Linq;
 
 namespace AreaFigure.Common.Helpers

@@ -1,12 +1,11 @@
 using System;
 using AreaFigure.Common;
-using AreaFigure.Common.Figures;
 using AreaFigure.Common.Helpers;
 using Xunit;
 
 namespace AreaFigureUnitTest
 {
-    public class StrategyShape_TestClass
+    public class StrategyShapeTestClass
     {
         StrategyShape figureManager = new StrategyShape();
 
@@ -19,7 +18,7 @@ namespace AreaFigureUnitTest
             var values = Converter.ToDoubleArray(input);
             figureManager.Create(values);
 
-            var resultDouble = figureManager.GetShape().GetSquare();
+            var resultDouble = figureManager.GetSquare();
 
             var result = Math.Round(resultDouble, 5);
             output = Math.Round(output, 5);

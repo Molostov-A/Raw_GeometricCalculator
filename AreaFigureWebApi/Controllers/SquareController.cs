@@ -1,5 +1,5 @@
 ﻿using AreaFigure.Common.Abstract;
-using AreaFigure.Common.Figures;
+using AreaFigure.Common.Shapes;
 using AreaFigureWebApi.Helpers;
 using AreaFigureWebApi.Models;
 using Microsoft.AspNetCore.Mvc;

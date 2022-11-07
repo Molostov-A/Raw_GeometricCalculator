@@ -1,8 +1,8 @@
 ﻿using System;
 using AreaFigure.Common;
 using AreaFigure.Common.Exceptions;
-using AreaFigure.Common.Figures;
 using AreaFigure.Common.Helpers;
+using AreaFigure.Common.Shapes;
 
 namespace AreaFigureConsoleApp
 {
@@ -12,9 +12,9 @@ namespace AreaFigureConsoleApp
         static void Main(string[] args)
         {
             CreateShape();
-            Console.WriteLine($"Type of figure - {shapeManager.GetShape().GetTypeShape()}");
+            Console.WriteLine($"Type of figure - {shapeManager.GetTypeShape()}");
             CheckOnTriangleRectangular();
-            Console.WriteLine($"Square = {shapeManager.GetShape().GetSquare()}");
+            Console.WriteLine($"Square = {shapeManager.GetSquare()}");
         }
 
         private static void CreateShape()
@@ -28,9 +28,9 @@ namespace AreaFigureConsoleApp
 
         private static void CheckOnTriangleRectangular()
         {
-            if (shapeManager.GetShape().GetTypeShape() == TypeShape.triangle.ToString())
+            if (shapeManager.GetTypeShape() == TypeShape.Roster[3])
             {
-                var triangle = (Triangle)shapeManager.GetShape();
+                Triangle triangle = (Triangle)shapeManager.GetShape();
                 if (triangle.CheckRightTriangle())
                 {
                     Console.WriteLine("This triangle is rectangular");

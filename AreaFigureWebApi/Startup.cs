@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AreaFigure.Common;
 using AreaFigure.Common.Abstract;
-using AreaFigure.Common.Figures;
+using AreaFigure.Common.Shapes;
 
 namespace AreaFigureWebApi
 {
