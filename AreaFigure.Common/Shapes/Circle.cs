@@ -13,7 +13,7 @@ namespace AreaFigure.Common.Shapes
         }
         private double GetSquareCircle(double radius)
         {
-            return 2 * Math.PI * Math.Pow(radius, 2);
+            return Math.PI * Math.Pow(radius, 2);
         }
     }
 }

@@ -52,16 +52,6 @@ namespace AreaFigure.Common
             return shape;
         }
 
-        public double GetSquare()
-        {
-            return shape.GetSquare();
-        }
-
-        public string GetTypeShape()
-        {
-            return shape.GetTypeShape();
-        }
-
         /// <summary>
         /// Checking that a shape can exist with the given lengths of the sides
         /// </summary>
