@@ -4,6 +4,7 @@ namespace AreaFigure.Common.Shapes
 {
     public class Triangle : Shape
     {
+        public Triangle(){}
         public Triangle(params double[] sides) : base(sides)
         { }
 

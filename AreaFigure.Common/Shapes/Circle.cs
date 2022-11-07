@@ -4,6 +4,7 @@ namespace AreaFigure.Common.Shapes
 {
     public class Circle : Shape
     {
+        public Circle() { }
         public Circle(params double[] sides) : base(sides)
         { }
         private protected override void SetSquare()

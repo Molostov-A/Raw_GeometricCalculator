@@ -2,6 +2,7 @@
 {
     public class Rectangle : Shape
     {
+        public Rectangle(){}
         public Rectangle(params double[] sides) : base(sides)
         { }
 

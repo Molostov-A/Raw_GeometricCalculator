@@ -8,14 +8,16 @@ namespace AreaFigure.Common.Shapes
 
         public double[] LenghSides { get; }
         private protected double square;
+        private readonly string _type;
         public string GetTypeShape()
         {
-            throw new System.NotImplementedException();
+            return _type;
         }
-
+        public Shape(){}
         public Shape(double[] lenghSides)
         {
             LenghSides = CollapseNullValues(lenghSides);
+            _type = GetType().Name.ToLower();
             SetSquare();
         }
 

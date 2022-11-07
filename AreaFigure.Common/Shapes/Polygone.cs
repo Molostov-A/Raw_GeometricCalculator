@@ -4,6 +4,7 @@ namespace AreaFigure.Common.Shapes
 {
     public class Polygone : Shape
     {
+        public Polygone() { }
         public Polygone(params double[] sides) : base(sides)
         { }
         private protected override void SetSquare()
