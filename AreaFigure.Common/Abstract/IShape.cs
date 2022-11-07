@@ -2,6 +2,6 @@
 {
     public interface IShape
     {
-        string GetTypeShape();
+        double[] LenghSides { get; }
     }
 }

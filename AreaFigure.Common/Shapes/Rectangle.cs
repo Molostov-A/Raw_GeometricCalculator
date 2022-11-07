@@ -1,21 +1,17 @@
-﻿namespace AreaFigure.Common.Figures
+﻿namespace AreaFigure.Common.Shapes
 {
     public class Rectangle : Shape
     {
         public Rectangle(params double[] sides) : base(sides)
         { }
-        public override double GetSquare()
+
+        private protected override void SetSquare()
         {
-            return GetSquareRectangle(LenghSides[0], LenghSides[1]);
+            square = GetSquareRectangle(LenghSides[0], LenghSides[1]);
         }
         private double GetSquareRectangle(double a, double b)
         {
             return a * b;
-        }
-
-        public override string GetTypeShape()
-        {
-            return TypeShape.rectangle.ToString();
         }
     }
 }

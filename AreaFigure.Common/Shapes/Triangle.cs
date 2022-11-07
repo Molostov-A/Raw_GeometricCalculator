@@ -1,19 +1,20 @@
 ﻿using System;
 
-namespace AreaFigure.Common.Figures
+namespace AreaFigure.Common.Shapes
 {
     public class Triangle : Shape
     {
         public Triangle(params double[] sides) : base(sides)
         { }
-        public override double GetSquare()
+
+        private protected override void SetSquare()
         {
             var a = LenghSides[0];
             var b = LenghSides[1];
             var c = LenghSides[2];
             var p = (a + b + c) / 2;
             var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            return s;
+            square = s;
         }
         public bool CheckRightTriangle()
         {
@@ -28,10 +29,6 @@ namespace AreaFigure.Common.Figures
                 return true;
 
             return false;
-        }
-        public override string GetTypeShape()
-        {
-            return TypeShape.triangle.ToString();
         }
     }
 }

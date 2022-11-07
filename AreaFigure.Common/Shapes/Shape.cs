@@ -1,27 +1,22 @@
-﻿using AreaFigure.Common.Abstract;
-using System.Linq;
+﻿using System.Linq;
+using AreaFigure.Common.Abstract;
 
-namespace AreaFigure.Common.Figures
+namespace AreaFigure.Common.Shapes
 {
     public class Shape : ISquareShape, IShape
     {
-        public readonly double[] LenghSides;
+
+        public double[] LenghSides { get; }
+        private protected double square;
+        public string GetTypeShape()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Shape(double[] lenghSides)
         {
             LenghSides = CollapseNullValues(lenghSides);
-        }
-
-        /// <summary>
-        /// Get the square of the figure
-        /// </summary>
-        /// <returns></returns>
-        public virtual double GetSquare()
-        {
-            return -1;
-        }
-        public virtual string GetTypeShape()
-        {
-            return "shape";
+            SetSquare();
         }
 
         /// <summary>
@@ -33,6 +28,16 @@ namespace AreaFigure.Common.Figures
         {
             var notZeroSide = sides.Select(x => x).Where(x => x != 0).ToArray();
             return notZeroSide;
+        }
+
+        public double GetSquare()
+        {
+            return square;
+        }
+
+        private protected virtual void SetSquare()
+        {
+            square = -1;
         }
     }
 }

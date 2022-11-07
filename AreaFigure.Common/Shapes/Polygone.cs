@@ -1,19 +1,14 @@
 ﻿using AreaFigure.Common.Exceptions;
 
-namespace AreaFigure.Common.Figures
+namespace AreaFigure.Common.Shapes
 {
     public class Polygone : Shape
     {
         public Polygone(params double[] sides) : base(sides)
         { }
-        public override double GetSquare()
+        private protected override void SetSquare()
         {
             throw new FeatureNotImplemented("this feature has not yet been implemented");
-        }
-
-        public override string GetTypeShape()
-        {
-            return TypeShape.polygon.ToString();
         }
     }
 }

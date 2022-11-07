@@ -1,16 +1,12 @@
-﻿namespace AreaFigure.Common.Figures
+﻿namespace AreaFigure.Common.Shapes
 {
     public class Point : Shape
     {
         public Point(params double[] sides) : base(sides)
         { }
-        public override double GetSquare()
+        private protected override void SetSquare()
         {
-            return 0;
-        }
-        public override string GetTypeShape()
-        {
-            return TypeShape.point.ToString();
+            square = 0;
         }
     }
 }
