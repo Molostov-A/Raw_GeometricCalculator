@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AreaFigure.Common\SquareShape.Common.csproj" />
+    <ProjectReference Include="..\SquareShape.Common\SquareShape.Common.csproj" />
   </ItemGroup>
 
 </Project>
