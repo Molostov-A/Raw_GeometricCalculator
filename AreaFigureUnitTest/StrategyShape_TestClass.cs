@@ -10,6 +10,7 @@ namespace AreaFigureUnitTest
     {
         StrategyShape figureManager = new StrategyShape();
 
+
         [Theory]
         [InlineData("1 1 1", 0.433012)]
         [InlineData("3 4 5", 6)]
