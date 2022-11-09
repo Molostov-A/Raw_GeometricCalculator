@@ -52,7 +52,7 @@ namespace GeometryCalculator.Shapes
              for (int i = 0; i < sides.Length; i++)
              {
                  if (perimeter - sides[i] <= sides[i])
-                     throw new FigureDoesNotExistExeption("This figure does not exist");
+                     throw new FigureDoesNotExistExeption("Такого треугольника не существует");
              }
          }
         }

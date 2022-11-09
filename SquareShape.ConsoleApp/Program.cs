@@ -1,6 +1,8 @@
 ﻿using System;
 using GeometryCalculator.Abstract;
+using GeometryCalculator.Exceptions;
 using GeometryCalculator.Helpers;
+using GeometryCalculator.Shapes;
 using SquareShape.Common;
 
 namespace SquareShape.ConsoleApp
@@ -14,15 +16,21 @@ namespace SquareShape.ConsoleApp
             Console.WriteLine("Одно число - длина радиуса окружности");
             Console.WriteLine("Три числа - длины сторон треугольника");
             var values = Converter.ToDoubleArray(Console.ReadLine());
-            var figure = _makerFigures.Create(values);
-
-            Console.WriteLine($"Тип фигуры - {figure.TypeShape}");
-            if (figure is ITriangle triangle)
+            try
             {
-                CheckOnTriangleRectangular(triangle.IsRectangle);
-            }
+                var figure = _makerFigures.Create(values);
+                Console.WriteLine($"Тип фигуры - {figure.TypeShape}");
+                if (figure is ITriangle triangle)
+                {
+                    CheckOnTriangleRectangular(triangle.IsRectangle);
+                }
 
-            Console.WriteLine($"Площадь = {figure.Square}");
+                Console.WriteLine($"Площадь = {figure.Square}");
+            }
+            catch (FigureDoesNotExistExeption e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private static void CheckOnTriangleRectangular(bool isRect)
