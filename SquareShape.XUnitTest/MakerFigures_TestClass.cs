@@ -1,10 +1,10 @@
 using System;
-using GeometryCalculator.Helpers;
-using GeometryCalculator.Shapes;
+using GeometriñCalculator.Shapes;
+using GeometriñCalculator.Helpers;
 using SquareShape.Common;
 using Xunit;
 
-namespace GeometryCalculator.UnitTests
+namespace GeometriñCalculator.UnitTests
 {
     public class MakerFigures_TestClass
     {

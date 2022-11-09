@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace GeometryCalculator.Helpers
+namespace GeometriсCalculator.Helpers
 {
     public static class Converter
     {

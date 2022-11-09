@@ -1,4 +1,4 @@
-﻿using GeometryCalculator.Shapes;
+﻿using GeometriсCalculator.Shapes;
 using SquareShape.Common;
 using SquareShape.WebApi.Models;
 

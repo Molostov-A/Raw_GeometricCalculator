@@ -1,6 +1,6 @@
-﻿using GeometryCalculator.Abstract;
+﻿using GeometriсCalculator.Abstract;
 
-namespace GeometryCalculator.Shapes
+namespace GeometriсCalculator.Shapes
 {
     public class Figure : IFigure
     {

@@ -1,4 +1,4 @@
-using GeometryCalculator.Abstract;
+using GeometriñCalculator.Abstract;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

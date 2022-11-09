@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using GeometryCalculator.Abstract;
-using GeometryCalculator.Shapes;
+using GeometriсCalculator.Abstract;
+using GeometriсCalculator.Shapes;
 
 namespace SquareShape.Common;
 

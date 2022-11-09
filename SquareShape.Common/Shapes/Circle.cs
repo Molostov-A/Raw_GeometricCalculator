@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GeometryCalculator.Shapes
+namespace GeometriсCalculator.Shapes
 {
     public class Circle : Figure
     {

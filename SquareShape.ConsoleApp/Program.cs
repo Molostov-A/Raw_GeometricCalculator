@@ -1,8 +1,8 @@
 ﻿using System;
-using GeometryCalculator.Abstract;
-using GeometryCalculator.Exceptions;
-using GeometryCalculator.Helpers;
-using GeometryCalculator.Shapes;
+using GeometriсCalculator.Abstract;
+using GeometriсCalculator.Exceptions;
+using GeometriсCalculator.Helpers;
+using GeometriсCalculator.Shapes;
 using SquareShape.Common;
 
 namespace SquareShape.ConsoleApp
