@@ -1,11 +1,10 @@
+using GeometryCalculator.Abstract;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SquareShape.Common;
-using SquareShape.Common.Abstract;
-using SquareShape.Common.Shapes;
 
 namespace SquareShape.WebApi
 {
@@ -22,7 +21,7 @@ namespace SquareShape.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IStrategyShape<Shape>,StrategyShape>();
+            services.AddTransient<IMakerFigures,MakerFigures>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

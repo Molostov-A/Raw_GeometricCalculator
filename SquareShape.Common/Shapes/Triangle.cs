@@ -1,39 +1,60 @@
 ﻿using System;
+using System.Linq;
+using GeometryCalculator.Abstract;
+using GeometryCalculator.Exceptions;
 
-namespace SquareShape.Common.Shapes
+namespace GeometryCalculator.Shapes
 {
-    public class Triangle : Shape
+    public class Triangle : Figure, ITriangle
     {
-        public Triangle(){}
-        public Triangle(params double[] sides) : base(sides) { }
-
-        private protected override void SetSquare()
+        private readonly double _sideA;
+        private readonly double _sideB;
+        private readonly double _sideC;
+        public bool IsRectangle
         {
-            var a = LenghSides[0];
-            var b = LenghSides[1];
-            var c = LenghSides[2];
-            var p = (a + b + c) / 2;
-            var s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            Square = s;
+            get
+            {
+                if (Math.Pow(_sideA, 2) + Math.Pow(_sideB, 2) == Math.Pow(_sideC, 2))
+                    return true;
+                if (Math.Pow(_sideA, 2) + Math.Pow(_sideC, 2) == Math.Pow(_sideB, 2))
+                    return true;
+                if (Math.Pow(_sideC, 2) + Math.Pow(_sideB, 2) == Math.Pow(_sideA, 2))
+                    return true;
+                return false;
+            }
+        }
+        public override double Square
+        {
+            get
+            {
+                CheckExistenceShape(_sideA, _sideB, _sideC);
+                var p = (_sideA + _sideB + _sideC) / 2;
+                var s = Math.Sqrt(p * (p - _sideA) * (p - _sideB) * (p - _sideC));
+                return s;
+            }
+
         }
 
-        /// <summary>
-        /// Проверка, является ли треугольник прямоугольным
-        /// </summary>
-        /// <returns></returns>
-        public bool CheckRightTriangle()
-        {
-            var a = LenghSides[0];
-            var b = LenghSides[1];
-            var c = LenghSides[2];
-            if (Math.Pow(a, 2) + Math.Pow(b, 2) == Math.Pow(c, 2))
-                return true;
-            if (Math.Pow(a, 2) + Math.Pow(c, 2) == Math.Pow(b, 2))
-                return true;
-            if (Math.Pow(c, 2) + Math.Pow(b, 2) == Math.Pow(a, 2))
-                return true;
+        public Triangle(double sideA, double sideB, double sideC) => (_sideA, _sideB, _sideC) = (sideA, sideB, sideC);
 
-            return false;
+
+        ///  <summary>
+        ///  Проверка того, что фигура может существовать с заданными длинами сторон
+        ///  </summary>
+        ///  <exception cref="FigureDoesNotExistExeption">
+        /// Ошибка, которая означает что такая фигура не может существовать 
+        /// </exception>
+        private static void CheckExistenceShape(params double[] sides)
+        {
+         if (sides.Length > 2)
+         {
+             var perimeter = sides.Sum();
+             for (int i = 0; i < sides.Length; i++)
+             {
+                 if (perimeter - sides[i] <= sides[i])
+                     throw new FigureDoesNotExistExeption("This figure does not exist");
+             }
+         }
         }
     }
 }

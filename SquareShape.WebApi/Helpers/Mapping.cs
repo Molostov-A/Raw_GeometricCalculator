@@ -1,18 +1,17 @@
-﻿using SquareShape.Common;
-using SquareShape.Common.Shapes;
+﻿using GeometryCalculator.Shapes;
+using SquareShape.Common;
 using SquareShape.WebApi.Models;
 
 namespace SquareShape.WebApi.Helpers
 {
     public static class Mapping
     {
-        public static InformAboutFigure ToInformAboutFigure(Shape figure)
+        public static InformAboutFigure ToInformAboutFigure(Figure figure)
         {
             InformAboutFigure infFigure = new InformAboutFigure()
             {
-                Type = figure.GetTypeShape(),
-                Sides = figure.LenghSides,
-                Square = figure.GetSquare()
+                Type = figure.TypeShape,
+                Square = figure.Square
             };
             return infFigure;
         }

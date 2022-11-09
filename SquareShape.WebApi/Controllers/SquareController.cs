@@ -1,5 +1,4 @@
-﻿using SquareShape.Common.Abstract;
-using SquareShape.Common.Shapes;
+﻿using GeometryCalculator.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using SquareShape.WebApi.Helpers;
 using SquareShape.WebApi.Models;
@@ -10,8 +9,8 @@ namespace SquareShape.WebApi.Controllers
     [ApiController]
     public class SquareController : ControllerBase
     {
-        private readonly IStrategyShape<Shape> _figureManager;
-        public SquareController(IStrategyShape<Shape> figureManager)
+        private readonly IMakerFigures _figureManager;
+        public SquareController(IMakerFigures figureManager)
         {
             _figureManager = figureManager;
         }
@@ -29,8 +28,7 @@ namespace SquareShape.WebApi.Controllers
             {
                 return BadRequest();
             }
-            _figureManager.Create(item.Values);
-            var shape = _figureManager.GetShape();
+            var shape = _figureManager.Create(item.Values);
             var figureInfo = Mapping.ToInformAboutFigure(shape);
             return new ObjectResult(figureInfo);
         }

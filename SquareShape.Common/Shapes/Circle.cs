@@ -1,20 +1,12 @@
 ﻿using System;
 
-namespace SquareShape.Common.Shapes
+namespace GeometryCalculator.Shapes
 {
-    public class Circle : Shape
+    public class Circle : Figure
     {
-        public Circle() { }
-        public Circle(params double[] sides) : base(sides) { }
+        private readonly double _radius;
+        public Circle(double radius) => _radius = radius;
 
-        private protected override void SetSquare()
-        {
-            Square = GetSquareCircle(LenghSides[0]);
-        }
-
-        private double GetSquareCircle(double radius)
-        {
-            return Math.PI * Math.Pow(radius, 2);
-        }
+        public override double Square => Math.PI * Math.Pow(_radius, 2);
     }
 }

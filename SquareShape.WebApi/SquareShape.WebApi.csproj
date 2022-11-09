@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SquareShape.Common\SquareShape.Common.csproj" />
+    <ProjectReference Include="..\SquareShape.Common\GeometryCalculator.csproj" />
   </ItemGroup>
 
 

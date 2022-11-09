@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace SquareShape.Common.Helpers
+namespace GeometryCalculator.Helpers
 {
     public static class Converter
     {
@@ -13,8 +13,7 @@ namespace SquareShape.Common.Helpers
             }
 
             str = str.Trim();
-            var value = TrySplitToArray(str).Select(double.Parse).ToArray();
-
+            var value = CollapseNullValues(TrySplitToArray(str).Select(double.Parse).ToArray());
             return value;
         }
 
@@ -30,6 +29,17 @@ namespace SquareShape.Common.Helpers
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Если среди длин есть нули, метод удаляет их из списка сторон
+        /// </summary>
+        /// <param name="sides">Длины сторон</param>
+        /// <returns> </returns>
+        private static double[] CollapseNullValues(double[] sides)
+        {
+            var notZeroSide = sides.Select(x => x).Where(x => x != 0).ToArray();
+            return notZeroSide;
         }
     }
 }
