@@ -2,6 +2,6 @@
 {
     public interface IShape
     {
-        double[] LenghSides { get; }
+        double GetSquare();
     }
 }
