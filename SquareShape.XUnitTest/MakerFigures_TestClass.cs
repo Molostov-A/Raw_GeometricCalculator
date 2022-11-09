@@ -1,10 +1,9 @@
 using System;
-using GeometriñCalculator.Shapes;
-using GeometriñCalculator.Helpers;
+using GeometricCalculator.Shapes;
 using SquareShape.Common;
 using Xunit;
 
-namespace GeometriñCalculator.UnitTests
+namespace GeometricCalculator.UnitTests
 {
     public class MakerFigures_TestClass
     {
@@ -44,7 +43,7 @@ namespace GeometriñCalculator.UnitTests
         public void OutputTypeFigure_TrueResult(double[] input, string output)
         {
             var shape = CreateShape(input);
-            var result = shape.TypeShape;
+            var result = shape.Type;
             Assert.Equal(output, result);
         }
 

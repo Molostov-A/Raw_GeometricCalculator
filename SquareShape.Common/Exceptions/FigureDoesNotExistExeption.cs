@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GeometriсCalculator.Exceptions
+namespace GeometricCalculator.Exceptions
 {
     public class FigureDoesNotExistExeption : Exception
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using GeometriсCalculator.Abstract;
-using GeometriсCalculator.Exceptions;
+using GeometricCalculator.Abstract;
+using GeometricCalculator.Exceptions;
 
-namespace GeometriсCalculator.Shapes
+namespace GeometricCalculator.Shapes
 {
     public class Triangle : Figure, ITriangle
     {

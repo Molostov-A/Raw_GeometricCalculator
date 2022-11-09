@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquareShape.ConsoleApp", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeometricCalculator", "SquareShape.Common\GeometricCalculator.csproj", "{66E4CEBF-A91D-40F6-85C9-8583FF0BEA0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeometryCalculator.UnitTests", "SquareShape.XUnitTest\GeometryCalculator.UnitTests.csproj", "{9A827FC9-E443-48A4-A8C0-929CD2C03E74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeometricCalculator.UnitTests", "SquareShape.XUnitTest\GeometricCalculator.UnitTests.csproj", "{9A827FC9-E443-48A4-A8C0-929CD2C03E74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquareShape.WebApi", "SquareShape.WebApi\SquareShape.WebApi.csproj", "{EF1756FD-CE9D-4955-8D0A-A862552BFC4C}"
 EndProject

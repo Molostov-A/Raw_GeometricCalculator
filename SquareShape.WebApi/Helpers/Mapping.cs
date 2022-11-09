@@ -1,4 +1,4 @@
-﻿using GeometriсCalculator.Shapes;
+﻿using GeometricCalculator.Shapes;
 using SquareShape.Common;
 using SquareShape.WebApi.Models;
 
@@ -10,7 +10,7 @@ namespace SquareShape.WebApi.Helpers
         {
             InformAboutFigure infFigure = new InformAboutFigure()
             {
-                Type = figure.TypeShape,
+                Type = figure.Type,
                 Square = figure.Square
             };
             return infFigure;

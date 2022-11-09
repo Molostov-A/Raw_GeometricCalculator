@@ -1,8 +1,7 @@
 ﻿using System;
-using GeometriсCalculator.Abstract;
-using GeometriсCalculator.Exceptions;
-using GeometriсCalculator.Helpers;
-using GeometriсCalculator.Shapes;
+using GeometricCalculator.Abstract;
+using GeometricCalculator.Exceptions;
+using GeometricCalculator.Helpers;
 using SquareShape.Common;
 
 namespace SquareShape.ConsoleApp
@@ -19,7 +18,7 @@ namespace SquareShape.ConsoleApp
             try
             {
                 var figure = _makerFigures.Create(values);
-                Console.WriteLine($"Тип фигуры - {figure.TypeShape}");
+                Console.WriteLine($"Тип фигуры - {figure.Type}");
                 if (figure is ITriangle triangle)
                 {
                     CheckOnTriangleRectangular(triangle.IsRectangle);

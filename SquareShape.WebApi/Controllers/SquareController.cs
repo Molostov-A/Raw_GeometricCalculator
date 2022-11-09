@@ -1,4 +1,4 @@
-﻿using GeometriсCalculator.Abstract;
+﻿using GeometricCalculator.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using SquareShape.WebApi.Helpers;
 using SquareShape.WebApi.Models;

@@ -1,4 +1,4 @@
-﻿namespace GeometriсCalculator.Abstract;
+﻿namespace GeometricCalculator.Abstract;
 
 public interface ITriangle:IFigure
 {

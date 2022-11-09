@@ -1,10 +1,10 @@
-﻿using GeometriсCalculator.Abstract;
+﻿using GeometricCalculator.Abstract;
 
-namespace GeometriсCalculator.Shapes
+namespace GeometricCalculator.Shapes
 {
     public class Figure : IFigure
     {
         public virtual double Square { get; }
-        public string TypeShape => GetType().Name.ToLower();
+        public string Type => GetType().Name.ToLower();
     }
 }
