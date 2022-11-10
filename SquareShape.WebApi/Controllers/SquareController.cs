@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using GeometricCalculator.Abstract;
 using Microsoft.AspNetCore.Mvc;
-using SquareShape.WebApi.Helpers;
 using SquareShape.WebApi.Models;
 
 namespace SquareShape.WebApi.Controllers

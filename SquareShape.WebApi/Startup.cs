@@ -1,3 +1,4 @@
+using AutoMapper;
 using GeometricCalculator;
 using GeometricCalculator.Abstract;
 using Microsoft.AspNetCore.Builder;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SquareShape.WebApi.Models;
 
 namespace SquareShape.WebApi
 {
@@ -22,6 +24,11 @@ namespace SquareShape.WebApi
         {
             services.AddControllers();
             services.AddTransient<IMakerFigures,MakerFigures>();
+
+            // Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<IFigure, InformAboutFigure>());
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
