@@ -1,11 +1,10 @@
 using System;
 using GeometricCalculator.Abstract;
-using GeometricCalculator.Shapes;
 using Xunit;
 
 namespace GeometricCalculator.UnitTests
 {
-    public class MakerFigures_TestClass
+    public class MakerFiguresTestClass
     {
         private IFigure CreateShape(double[] input)
         {
@@ -58,8 +57,8 @@ namespace GeometricCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(new [] { 3, 4, 5.1 }, false)]
-        [InlineData(new [] { 33, 56, 65.1 }, false)]
+        [InlineData(new[] { 3, 4, 5.1 }, false)]
+        [InlineData(new[] { 33, 56, 65.1 }, false)]
         public void TypeTriangle_FalseResult(double[] input, bool output)
         {
             var shape = CreateShape(input);

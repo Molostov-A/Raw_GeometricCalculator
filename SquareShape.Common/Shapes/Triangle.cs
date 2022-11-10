@@ -7,18 +7,18 @@ namespace GeometricCalculator.Shapes
 {
     public class Triangle : Figure, ITriangle
     {
-        public double _sideA { get; set; }
-        public double _sideB { get; set; }
-        public double _sideC { get; set; }
+        public double SideA { get; set; }
+        public double SideB { get; set; }
+        public double SideC { get; set; }
         public bool IsRectangle
         {
             get
             {
-                if (Math.Pow(_sideA, 2) + Math.Pow(_sideB, 2) == Math.Pow(_sideC, 2))
+                if (Math.Pow(SideA, 2) + Math.Pow(SideB, 2) == Math.Pow(SideC, 2))
                     return true;
-                if (Math.Pow(_sideA, 2) + Math.Pow(_sideC, 2) == Math.Pow(_sideB, 2))
+                if (Math.Pow(SideA, 2) + Math.Pow(SideC, 2) == Math.Pow(SideB, 2))
                     return true;
-                if (Math.Pow(_sideC, 2) + Math.Pow(_sideB, 2) == Math.Pow(_sideA, 2))
+                if (Math.Pow(SideC, 2) + Math.Pow(SideB, 2) == Math.Pow(SideA, 2))
                     return true;
                 return false;
             }
@@ -27,15 +27,15 @@ namespace GeometricCalculator.Shapes
         {
             get
             {
-                CheckExistenceShape(_sideA, _sideB, _sideC);
-                var p = (_sideA + _sideB + _sideC) / 2;
-                var s = Math.Sqrt(p * (p - _sideA) * (p - _sideB) * (p - _sideC));
+                CheckExistenceShape(SideA, SideB, SideC);
+                var p = (SideA + SideB + SideC) / 2;
+                var s = Math.Sqrt(p * (p - SideA) * (p - SideB) * (p - SideC));
                 return s;
             }
 
         }
 
-        public Triangle(double sideA, double sideB, double sideC) => (_sideA, _sideB, _sideC) = (sideA, sideB, sideC);
+        public Triangle(double sideA, double sideB, double sideC) => (SideA, SideB, SideC) = (sideA, sideB, sideC);
 
 
         ///  <summary>

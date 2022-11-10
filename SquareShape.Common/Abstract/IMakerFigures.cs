@@ -1,6 +1,4 @@
-﻿using GeometricCalculator.Shapes;
-
-namespace GeometricCalculator.Abstract;
+﻿namespace GeometricCalculator.Abstract;
 
 public interface IMakerFigures
 {

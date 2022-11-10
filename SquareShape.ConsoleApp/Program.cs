@@ -25,9 +25,6 @@ namespace SquareShape.ConsoleApp
                     CheckOnTriangleRectangular(triangle.IsRectangle);
                 }
                 Console.WriteLine($"Площадь = {figure.Square}");
-                Console.WriteLine();
-                ((Triangle) figure)._sideA = 2;
-                Console.WriteLine(figure.Square);
             }
             catch (FigureDoesNotExistExeption e)
             {
