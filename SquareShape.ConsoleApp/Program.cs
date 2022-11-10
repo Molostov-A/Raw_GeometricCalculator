@@ -3,7 +3,6 @@ using GeometricCalculator;
 using GeometricCalculator.Abstract;
 using GeometricCalculator.Exceptions;
 using GeometricCalculator.Helpers;
-using GeometricCalculator.Shapes;
 
 namespace SquareShape.ConsoleApp
 {

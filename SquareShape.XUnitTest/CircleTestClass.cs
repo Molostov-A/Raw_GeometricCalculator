@@ -7,8 +7,6 @@ namespace GeometricCalculator.UnitTests
 {
     public class CircleTestClass
     {
-
-
         [Theory]
         [InlineData(new double[] { 3 }, 28.274334)]
         public void SquareFigure_TrueResult(double[] input, double output)
