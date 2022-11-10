@@ -4,5 +4,5 @@ namespace GeometricCalculator.Abstract;
 
 public interface IMakerFigures
 {
-    Figure Create(params double[] values);
+    IFigure Create(params double[] values);
 }

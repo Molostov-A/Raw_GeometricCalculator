@@ -6,7 +6,7 @@ namespace GeometricCalculator;
 
 public class MakerFigures:IMakerFigures
 {
-    public Figure Create(params double[] values)
+    public IFigure Create(params double[] values)
     {
         if(values.Length == 1)
             return Create(values[0]);

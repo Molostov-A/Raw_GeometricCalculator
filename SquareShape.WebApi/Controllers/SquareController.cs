@@ -15,12 +15,6 @@ namespace SquareShape.WebApi.Controllers
             _figureManager = figureManager;
         }
 
-        public IActionResult Get()
-        {
-            var welcome = "Enter the parameters of the figure \nJSON format: \n{\r\n    \"values\" : [double, ...]\r\n})";
-            return new ObjectResult(welcome);
-        }
-
         [HttpPost]
         public IActionResult Create([FromBody] InputValuesFigure item)
         {

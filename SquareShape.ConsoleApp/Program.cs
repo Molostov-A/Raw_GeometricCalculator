@@ -3,12 +3,12 @@ using GeometricCalculator;
 using GeometricCalculator.Abstract;
 using GeometricCalculator.Exceptions;
 using GeometricCalculator.Helpers;
+using GeometricCalculator.Shapes;
 
 namespace SquareShape.ConsoleApp
 {
     internal class Program
     {
-        static MakerFigures _makerFigures = new MakerFigures();
         static void Main(string[] args)
         {
             Console.WriteLine("Введите параметры фигуры (значения с пробелами)");
@@ -17,15 +17,30 @@ namespace SquareShape.ConsoleApp
             var values = Converter.ToDoubleArray(Console.ReadLine());
             try
             {
-                var figure = _makerFigures.Create(values);
-
-                Console.WriteLine($"Тип фигуры - {figure.Type}");
-                if (figure is ITriangle triangle)
+                IFigure figure;
+                bool isRect;
+                if (values.Length == 1)
                 {
-                    CheckOnTriangleRectangular(triangle.IsRectangle);
+                    Circle circle = new Circle(values[0]);
+                    figure = circle;
+                }
+                if (values.Length == 3)
+                {
+                     Triangle triangle = new Triangle(values[0], values[1], values[2]);
+                     isRect = triangle.IsRectangle;
+                     figure = triangle;
+                }
+                else
+                {
+                    throw new Exception("Реализация фигуры с данными параметрами отсутствует");
                 }
 
+                Console.WriteLine($"Тип фигуры - {(figure).Type}");
+                CheckOnTriangleRectangular(isRect);
                 Console.WriteLine($"Площадь = {figure.Square}");
+                Console.WriteLine();
+                ((Triangle) figure)._sideA = 2;
+                Console.WriteLine(figure.Square);
             }
             catch (FigureDoesNotExistExeption e)
             {

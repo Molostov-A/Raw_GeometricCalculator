@@ -7,9 +7,9 @@ namespace GeometricCalculator.Shapes
 {
     public class Triangle : Figure, ITriangle
     {
-        private readonly double _sideA;
-        private readonly double _sideB;
-        private readonly double _sideC;
+        public double _sideA { get; set; }
+        public double _sideB { get; set; }
+        public double _sideC { get; set; }
         public bool IsRectangle
         {
             get
