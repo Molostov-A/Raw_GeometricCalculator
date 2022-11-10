@@ -11,7 +11,7 @@ namespace GeometricCalculator.UnitTests
 
         [Theory]
         [InlineData(new double[] { 3 }, 28.274334)]
-        public void OutputSquareFigure_TriangleSquare_TrueResult(double[] input, double output)
+        public void SquareFigure_TrueResult(double[] input, double output)
         {
             IFigure shape = new Circle(input[0]);
             var result = Math.Round(shape.Square, 5);
@@ -21,7 +21,7 @@ namespace GeometricCalculator.UnitTests
 
         [Theory]
         [InlineData(new double[] { 3 }, 28.27)]
-        public void OutputSquareFigure_TriangleSquare_FalseResult(double[] input, double output)
+        public void SquareFigure_FalseResult(double[] input, double output)
         {
             IFigure shape = new Circle(input[0]);
             var result = Math.Round(shape.Square, 5);
@@ -31,7 +31,7 @@ namespace GeometricCalculator.UnitTests
 
         [Theory]
         [InlineData(new double[] { 3 }, "circle")]
-        public void OutputTypeFigure_TrueResult(double[] input, string output)
+        public void TypeFigure_TrueResult(double[] input, string output)
         {
             IFigure shape = new Circle(input[0]);
             var result = shape.Type;

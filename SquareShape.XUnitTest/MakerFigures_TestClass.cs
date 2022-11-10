@@ -7,9 +7,9 @@ namespace GeometricCalculator.UnitTests
 {
     public class MakerFigures_TestClass
     {
-        private IMakerFigures makerFigures = new MakerFigures();
         private IFigure CreateShape(double[] input)
         {
+            IMakerFigures makerFigures = new MakerFigures();
             var shape = makerFigures.Create(input);
             return shape;
         }
@@ -18,7 +18,7 @@ namespace GeometricCalculator.UnitTests
         [InlineData(new double[] { 1, 1, 1 }, 0.433012)]
         [InlineData(new double[] { 3, 4, 5 }, 6)]
         [InlineData(new double[] { 3 }, 28.274334)]
-        public void OutputSquareFigure_TriangleSquare_TrueResult(double[] input, double output)
+        public void SquareFigure_TrueResult(double[] input, double output)
         {
             var shape = CreateShape(input);
             var result = Math.Round(shape.Square, 5);
@@ -29,7 +29,7 @@ namespace GeometricCalculator.UnitTests
         [Theory]
         [InlineData(new double[] { 1, 1, 1 }, 0.43)]
         [InlineData(new double[] { 3 }, 28.27)]
-        public void OutputSquareFigure_TriangleSquare_FalseResult(double[] input, double output)
+        public void SquareFigure_FalseResult(double[] input, double output)
         {
             var shape = CreateShape(input);
             var result = Math.Round(shape.Square, 5);
@@ -40,7 +40,7 @@ namespace GeometricCalculator.UnitTests
         [Theory]
         [InlineData(new double[] { 1, 1, 1 }, "triangle")]
         [InlineData(new double[] { 3 }, "circle")]
-        public void OutputTypeFigure_TrueResult(double[] input, string output)
+        public void TypeFigure_TrueResult(double[] input, string output)
         {
             var shape = CreateShape(input);
             var result = shape.Type;
@@ -50,7 +50,7 @@ namespace GeometricCalculator.UnitTests
         [Theory]
         [InlineData(new double[] { 3, 4, 5 }, true)]
         [InlineData(new double[] { 33, 56, 65 }, true)]
-        public void OutputTypeTriangle_TrueResult(double[] input, bool output)
+        public void TypeTriangle_TrueResult(double[] input, bool output)
         {
             var shape = CreateShape(input);
             var result = ((ITriangle)shape).IsRectangle;
@@ -60,7 +60,7 @@ namespace GeometricCalculator.UnitTests
         [Theory]
         [InlineData(new [] { 3, 4, 5.1 }, false)]
         [InlineData(new [] { 33, 56, 65.1 }, false)]
-        public void OutputTypeTriangle_FalseResult(double[] input, bool output)
+        public void TypeTriangle_FalseResult(double[] input, bool output)
         {
             var shape = CreateShape(input);
             var result = ((ITriangle)shape).IsRectangle;
