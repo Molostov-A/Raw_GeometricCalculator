@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
 using GeometricCalculator.Abstract;
 using GeometricCalculator.Shapes;
 
-namespace SquareShape.Common;
+namespace GeometricCalculator;
 
 public class MakerFigures:IMakerFigures
 {

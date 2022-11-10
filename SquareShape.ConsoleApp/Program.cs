@@ -1,8 +1,8 @@
 ﻿using System;
+using GeometricCalculator;
 using GeometricCalculator.Abstract;
 using GeometricCalculator.Exceptions;
 using GeometricCalculator.Helpers;
-using SquareShape.Common;
 
 namespace SquareShape.ConsoleApp
 {
@@ -18,6 +18,7 @@ namespace SquareShape.ConsoleApp
             try
             {
                 var figure = _makerFigures.Create(values);
+
                 Console.WriteLine($"Тип фигуры - {figure.Type}");
                 if (figure is ITriangle triangle)
                 {

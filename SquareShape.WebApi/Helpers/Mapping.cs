@@ -1,5 +1,4 @@
 ﻿using GeometricCalculator.Shapes;
-using SquareShape.Common;
 using SquareShape.WebApi.Models;
 
 namespace SquareShape.WebApi.Helpers

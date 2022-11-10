@@ -1,6 +1,5 @@
 using System;
 using GeometricCalculator.Shapes;
-using SquareShape.Common;
 using Xunit;
 
 namespace GeometricCalculator.UnitTests
