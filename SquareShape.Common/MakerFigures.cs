@@ -6,6 +6,12 @@ namespace GeometricCalculator;
 
 public class MakerFigures : IMakerFigures
 {
+    /// <summary>
+    /// Создание фигуры в соответствии с полученным массивом чисел
+    /// </summary>
+    /// <param name="values"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
     public IFigure Create(params double[] values)
     {
         if (values.Length == 1)

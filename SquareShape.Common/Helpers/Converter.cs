@@ -5,6 +5,11 @@ namespace GeometricCalculator.Helpers
 {
     public static class Converter
     {
+        /// <summary>
+        /// Перевод строки чисел в массив
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static double[] ToDoubleArray(string str)
         {
             if (str == "")
@@ -17,6 +22,11 @@ namespace GeometricCalculator.Helpers
             return value;
         }
 
+        /// <summary>
+        /// Разделение строки на строки чисел по пробелу
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string[] TrySplitToArray(string str)
         {
             try
