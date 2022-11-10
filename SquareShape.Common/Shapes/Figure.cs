@@ -2,9 +2,9 @@
 
 namespace GeometricCalculator.Shapes
 {
-    public class Figure : IFigure
+    public abstract class Figure : IFigure
     {
-        public virtual double Square { get; }
+        public abstract double Square { get; }
         public string Type => GetType().Name.ToLower();
     }
 }
