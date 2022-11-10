@@ -1,56 +1,45 @@
 ﻿using System;
-using SquareShape.Common;
-using SquareShape.Common.Exceptions;
-using SquareShape.Common.Helpers;
-using SquareShape.Common.Shapes;
+using GeometricCalculator;
+using GeometricCalculator.Abstract;
+using GeometricCalculator.Exceptions;
+using GeometricCalculator.Helpers;
 
 namespace SquareShape.ConsoleApp
 {
     internal class Program
     {
-        static StrategyShape shapeManager = new StrategyShape();
         static void Main(string[] args)
         {
-            CreateShape();
-            Console.WriteLine($"Type of figure - {shapeManager.GetShape().GetTypeShape()}");
-            CheckOnTriangleRectangular();
-            Console.WriteLine($"Square = {shapeManager.GetShape().GetSquare()}");
-        }
-
-        private static void CreateShape()
-        {
-            Console.WriteLine("Enter the parameters of the figure (values with spaces)");
-            Console.WriteLine("One number - length of the radius of the circle");
-            Console.WriteLine("The three values - lengths of the sides of the triangle");
+            IMakerFigures makerFigures = new MakerFigures();
+            Console.WriteLine("Введите параметры фигуры (значения с пробелами)");
+            Console.WriteLine("Одно число - длина радиуса окружности");
+            Console.WriteLine("Три числа - длины сторон треугольника");
             var values = Converter.ToDoubleArray(Console.ReadLine());
-            TryCreateFigure(values);
-        }
-
-        private static void CheckOnTriangleRectangular()
-        {
-            if (shapeManager.GetShape().GetTypeShape() == new Triangle().GetType().Name.ToLower())
-            {
-                Triangle triangle = (Triangle)shapeManager.GetShape();
-                if (triangle.CheckRightTriangle())
-                {
-                    Console.WriteLine("This triangle is rectangular");
-                }
-                else
-                {
-                    Console.WriteLine("This triangle is not rectangular");
-                }
-            }
-        }
-
-        private static void TryCreateFigure(double[] values)
-        {
             try
             {
-                shapeManager.Create(values);
+                var figure = makerFigures.Create(values);
+                Console.WriteLine($"Тип фигуры - {(figure).Type}");
+                if (figure is ITriangle triangle)
+                {
+                    CheckOnTriangleRectangular(triangle.IsRectangle);
+                }
+                Console.WriteLine($"Площадь = {figure.Square}");
             }
-            catch (FigureDoesNotExist e)
+            catch (FigureDoesNotExistExeption e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+
+        private static void CheckOnTriangleRectangular(bool isRect)
+        {
+            if (isRect)
+            {
+                Console.WriteLine("Этот треугольник - прямоугольный");
+            }
+            else
+            {
+                Console.WriteLine("Этот треугольник не прямоугольный");
             }
         }
     }

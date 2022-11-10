@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SquareShape.Common\SquareShape.Common.csproj" />
+    <ProjectReference Include="..\GeometricCalculator\GeometricCalculator.csproj" />
   </ItemGroup>
 
 </Project>

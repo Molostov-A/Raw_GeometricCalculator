@@ -1,7 +1,6 @@
-﻿using SquareShape.Common.Abstract;
-using SquareShape.Common.Shapes;
+﻿using AutoMapper;
+using GeometricCalculator.Abstract;
 using Microsoft.AspNetCore.Mvc;
-using SquareShape.WebApi.Helpers;
 using SquareShape.WebApi.Models;
 
 namespace SquareShape.WebApi.Controllers
@@ -10,16 +9,12 @@ namespace SquareShape.WebApi.Controllers
     [ApiController]
     public class SquareController : ControllerBase
     {
-        private readonly IStrategyShape<Shape> _figureManager;
-        public SquareController(IStrategyShape<Shape> figureManager)
+        private readonly IMakerFigures _figureManager;
+        private readonly IMapper _mapper;
+        public SquareController(IMakerFigures figureManager, IMapper mapper)
         {
             _figureManager = figureManager;
-        }
-
-        public IActionResult Get()
-        {
-            var welcome = "Enter the parameters of the figure \nJSON format: \n{\r\n    \"values\" : [double, ...]\r\n})";
-            return new ObjectResult(welcome);
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -29,9 +24,8 @@ namespace SquareShape.WebApi.Controllers
             {
                 return BadRequest();
             }
-            _figureManager.Create(item.Values);
-            var shape = _figureManager.GetShape();
-            var figureInfo = Mapping.ToInformAboutFigure(shape);
+            var shape = _figureManager.Create(item.Values);
+            var figureInfo = _mapper.Map<InformAboutFigure>(shape);
             return new ObjectResult(figureInfo);
         }
     }
