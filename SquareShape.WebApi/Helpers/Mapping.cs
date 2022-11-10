@@ -3,7 +3,7 @@ using SquareShape.WebApi.Models;
 
 namespace SquareShape.WebApi.Helpers
 {
-    public static class Mapping
+    public class Mapping
     {
         public static InformAboutFigure ToInformAboutFigure(IFigure figure)
         {

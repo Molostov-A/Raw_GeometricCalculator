@@ -1,4 +1,5 @@
-﻿using GeometricCalculator.Abstract;
+﻿using AutoMapper;
+using GeometricCalculator.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using SquareShape.WebApi.Helpers;
 using SquareShape.WebApi.Models;
@@ -10,9 +11,11 @@ namespace SquareShape.WebApi.Controllers
     public class SquareController : ControllerBase
     {
         private readonly IMakerFigures _figureManager;
-        public SquareController(IMakerFigures figureManager)
+        private readonly IMapper _mapper;
+        public SquareController(IMakerFigures figureManager, IMapper mapper)
         {
             _figureManager = figureManager;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -23,7 +26,7 @@ namespace SquareShape.WebApi.Controllers
                 return BadRequest();
             }
             var shape = _figureManager.Create(item.Values);
-            var figureInfo = Mapping.ToInformAboutFigure(shape);
+            var figureInfo = _mapper.Map<IFigure>(shape);
             return new ObjectResult(figureInfo);
         }
     }
