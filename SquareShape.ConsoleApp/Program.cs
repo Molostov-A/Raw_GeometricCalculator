@@ -11,32 +11,19 @@ namespace SquareShape.ConsoleApp
     {
         static void Main(string[] args)
         {
+            IMakerFigures makerFigures = new MakerFigures();
             Console.WriteLine("Введите параметры фигуры (значения с пробелами)");
             Console.WriteLine("Одно число - длина радиуса окружности");
             Console.WriteLine("Три числа - длины сторон треугольника");
             var values = Converter.ToDoubleArray(Console.ReadLine());
             try
             {
-                IFigure figure;
-                bool isRect;
-                if (values.Length == 1)
-                {
-                    Circle circle = new Circle(values[0]);
-                    figure = circle;
-                }
-                if (values.Length == 3)
-                {
-                     Triangle triangle = new Triangle(values[0], values[1], values[2]);
-                     isRect = triangle.IsRectangle;
-                     figure = triangle;
-                }
-                else
-                {
-                    throw new Exception("Реализация фигуры с данными параметрами отсутствует");
-                }
-
+                var figure = makerFigures.Create(values);
                 Console.WriteLine($"Тип фигуры - {(figure).Type}");
-                CheckOnTriangleRectangular(isRect);
+                if (figure is ITriangle triangle)
+                {
+                    CheckOnTriangleRectangular(triangle.IsRectangle);
+                }
                 Console.WriteLine($"Площадь = {figure.Square}");
                 Console.WriteLine();
                 ((Triangle) figure)._sideA = 2;
