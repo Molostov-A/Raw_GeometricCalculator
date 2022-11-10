@@ -25,7 +25,7 @@ namespace SquareShape.WebApi.Controllers
                 return BadRequest();
             }
             var shape = _figureManager.Create(item.Values);
-            var figureInfo = _mapper.Map<IFigure>(shape);
+            var figureInfo = _mapper.Map<InformAboutFigure>(shape);
             return new ObjectResult(figureInfo);
         }
     }
